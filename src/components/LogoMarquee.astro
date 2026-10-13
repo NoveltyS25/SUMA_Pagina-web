@@ -1,8 +1,8 @@
 ---
 // Para sumar un cliente: agregar un objeto aquí y su logo en /public/logos.
 const clients = [
-  { name: 'Alma', src: '/logos/alma-original.png', cls: 'h-14' },
-  { name: 'CUPÁ Pastry & Coffee', src: '/logos/cupa-blanco.png', cls: 'h-14' },
+  { name: 'Alma', src: '/logos/alma-original.png', cls: 'h-20' },
+  { name: 'CUPÁ Pastry & Coffee', src: '/logos/cupa-blanco.png', cls: 'h-20' },
 ];
 // Se repite para que el carrusel nunca se vea vacío, y se duplica el bloque para el loop continuo.
 const set = [...clients, ...clients, ...clients];
@@ -25,7 +25,7 @@ const set = [...clients, ...clients, ...clients];
                   src={c.src}
                   alt={dup === 0 ? c.name : ''}
                   loading="lazy"
-                  class:list={[c.cls, 'w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0']}
+                  class:list={[c.cls, 'w-auto opacity-80 transition hover:opacity-100']}
                 />
               </li>
             ))}
