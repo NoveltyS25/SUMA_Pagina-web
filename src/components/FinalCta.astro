@@ -1,0 +1,20 @@
+---
+import { WA_CONTACT, WA_DEMO } from '../lib/site';
+---
+
+<section class="px-4 pb-24 sm:px-6">
+  <div class="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-volt px-6 py-20 text-center text-ink sm:px-12 sm:py-28">
+    <h2 class="mx-auto max-w-4xl text-6xl sm:text-8xl lg:text-9xl">¿Encendemos tu club?</h2>
+    <p class="mx-auto mt-6 max-w-xl text-lg font-medium">
+      Cuéntanos de tu negocio y te mostramos SUMA funcionando, sin compromiso.
+    </p>
+    <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+      <a href={WA_DEMO} target="_blank" rel="noopener" class="btn bg-ink text-volt hover:-translate-y-0.5">
+        Agendar una demo
+      </a>
+      <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn border border-ink/30 text-ink hover:bg-ink hover:text-volt">
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>

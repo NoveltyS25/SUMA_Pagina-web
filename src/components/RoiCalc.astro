@@ -1,0 +1,79 @@
+---
+import { PRICE_MONTH, PRICE_PROMO_MONTH } from '../lib/site';
+---
+
+<section class="border-t border-white/10 bg-ink-2/40">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:py-32">
+    <div class="reveal">
+      <p class="eyebrow mb-4">Calculadora</p>
+      <h2 class="h2">¿Cuándo se paga solo?</h2>
+      <p class="mt-5 max-w-md text-lg text-mute">
+        Mueve los números a los de tu negocio y mira cuántas visitas extra al mes necesitas para que
+        SUMA se pague.
+      </p>
+    </div>
+
+    <div
+      id="roi"
+      class="reveal rounded-3xl border border-white/10 bg-ink p-7 sm:p-9"
+      data-price={PRICE_MONTH}
+      data-promo={PRICE_PROMO_MONTH}
+    >
+      <label class="block">
+        <span class="flex justify-between text-sm text-mute">
+          Lo que gasta un cliente por visita
+          <b id="ticket-out" class="text-bone">$30.000</b>
+        </span>
+        <input id="ticket" type="range" min="8000" max="120000" step="1000" value="30000" class="mt-3 w-full accent-[#c6ff3d]" />
+      </label>
+      <label class="mt-7 block">
+        <span class="flex justify-between text-sm text-mute">
+          Lo que te queda después de costos
+          <b id="margin-out" class="text-bone">60%</b>
+        </span>
+        <input id="margin" type="range" min="10" max="90" step="1" value="60" class="mt-3 w-full accent-[#c6ff3d]" />
+      </label>
+
+      <div class="mt-9 grid grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-ink-2 p-5">
+          <p class="text-xs text-mute">Te queda por visita</p>
+          <p id="profit" class="mt-1 font-display text-4xl font-extrabold">$18.000</p>
+        </div>
+        <div class="rounded-2xl bg-volt p-5 text-ink">
+          <p class="text-xs font-semibold opacity-70">Visitas extra al mes</p>
+          <p class="mt-1 font-display text-4xl font-extrabold"><span id="visits">14</span></p>
+        </div>
+      </div>
+      <p class="mt-5 text-sm text-mute">
+        Con la promo de octubre bastan <b id="visits-promo" class="text-volt">10</b> visitas. Son
+        números de ejemplo: ajústalos a los tuyos.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.getElementById('roi');
+  if (root) {
+    const price = Number(root.dataset.price);
+    const promo = Number(root.dataset.promo);
+    const $ = (id: string) => document.getElementById(id)!;
+    const ticket = $('ticket') as HTMLInputElement;
+    const margin = $('margin') as HTMLInputElement;
+    const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+
+    const update = () => {
+      const t = Number(ticket.value);
+      const m = Number(margin.value);
+      const profit = (t * m) / 100;
+      $('ticket-out').textContent = cop.format(t);
+      $('margin-out').textContent = `${m}%`;
+      $('profit').textContent = cop.format(profit);
+      $('visits').textContent = String(Math.ceil(price / profit));
+      $('visits-promo').textContent = String(Math.ceil(promo / profit));
+    };
+    ticket.addEventListener('input', update);
+    margin.addEventListener('input', update);
+    update();
+  }
+</script>

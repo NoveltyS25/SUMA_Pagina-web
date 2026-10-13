@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0b;
+  --color-ink-2: #141416;
+  --color-line: #26262b;
+  --color-bone: #f4f4ef;
+  --color-mute: #9a9aa2;
+  --color-volt: #c6ff3d;
+
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.92;
+    letter-spacing: -0.005em;
+  }
+  ::selection {
+    background: var(--color-volt);
+    color: var(--color-ink);
+  }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold transition duration-200;
+  }
+  .btn-volt {
+    @apply bg-volt text-ink hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-6px_rgba(198,255,61,0.55)];
+  }
+  .btn-ghost {
+    @apply border border-white/20 text-bone hover:border-volt hover:text-volt;
+  }
+  .eyebrow {
+    @apply font-display text-lg font-semibold uppercase tracking-[0.18em] text-volt;
+  }
+  .h2 {
+    @apply text-5xl sm:text-6xl lg:text-7xl;
+  }
+}
+
+/* Logo marquee */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Scroll reveal (progressive enhancement: only hidden when JS is on) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes floaty {
+  50% { transform: translateY(-10px); }
+}
+.floaty { animation: floaty 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .floaty { animation: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}

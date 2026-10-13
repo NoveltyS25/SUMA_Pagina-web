@@ -1,0 +1,40 @@
+---
+// Para sumar un cliente: agregar un objeto aquí y su logo en /public/logos.
+const clients = [
+  { name: 'Alma', src: '/logos/alma-original.png', cls: 'h-14' },
+  { name: 'CUPÁ Pastry & Coffee', src: '/logos/cupa-blanco.png', cls: 'h-14' },
+];
+// Se repite para que el carrusel nunca se vea vacío, y se duplica el bloque para el loop continuo.
+const set = [...clients, ...clients, ...clients];
+---
+
+<section class="border-y border-white/10 bg-ink-2/50 py-10" aria-label="Negocios que ya suman">
+  <p class="mb-7 text-center font-display text-lg font-semibold uppercase tracking-[0.2em] text-mute">
+    Negocios que ya suman
+  </p>
+  <div
+    class="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]"
+  >
+    <div class="marquee-track flex w-max items-center">
+      {
+        [0, 1].map((dup) => (
+          <ul class="flex shrink-0 items-center gap-16 pr-16" aria-hidden={dup === 1}>
+            {set.map((c) => (
+              <li class="flex items-center">
+                <img
+                  src={c.src}
+                  alt={dup === 0 ? c.name : ''}
+                  loading="lazy"
+                  class:list={[c.cls, 'w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0']}
+                />
+              </li>
+            ))}
+            <li class="flex h-14 items-center rounded-full border border-dashed border-white/25 px-6 font-display text-xl font-semibold uppercase tracking-wide text-mute">
+              Tu negocio aquí
+            </li>
+          </ul>
+        ))
+      }
+    </div>
+  </div>
+</section>

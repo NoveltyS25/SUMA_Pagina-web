@@ -1,0 +1,24 @@
+---
+import { WA_CONTACT, WA_DISPLAY } from '../lib/site';
+---
+
+<footer class="border-t border-white/10">
+  <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between">
+    <div>
+      <img src="/logos/suma-blanco.png" alt="SUMA" width="120" height="68" class="h-9 w-auto" loading="lazy" />
+      <p class="mt-3 text-sm text-mute">Tarjetas de fidelización digital. Con SUMA, todo suma.</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-mute" aria-label="Pie de página">
+      <a class="hover:text-bone" href="#como-funciona">Cómo funciona</a>
+      <a class="hover:text-bone" href="#beneficios">Beneficios</a>
+      <a class="hover:text-bone" href="#precios">Precios</a>
+      <a class="hover:text-bone" href="#faq">Preguntas</a>
+      <a class="text-volt hover:underline" href={WA_CONTACT} target="_blank" rel="noopener">
+        WhatsApp {WA_DISPLAY}
+      </a>
+    </nav>
+  </div>
+  <p class="border-t border-white/5 py-5 text-center text-xs text-mute">
+    © {new Date().getFullYear()} SUMA · sumafidelidad.com
+  </p>
+</footer>

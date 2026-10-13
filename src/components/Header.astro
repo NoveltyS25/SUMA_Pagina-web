@@ -1,0 +1,45 @@
+---
+import { WA_CONTACT, PROMO_END } from '../lib/site';
+const links = [
+  ['Cómo funciona', '#como-funciona'],
+  ['Beneficios', '#beneficios'],
+  ['Precios', '#precios'],
+  ['Preguntas', '#faq'],
+];
+---
+
+<div id="promo-bar" data-end={PROMO_END} class="bg-volt text-ink">
+  <a
+    href="#precios"
+    class="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-center text-[13px] font-bold uppercase tracking-wide sm:text-sm"
+  >
+    <span aria-hidden="true">⚡</span>
+    Promo de octubre: paga 3 meses y recibe 3 gratis
+    <span aria-hidden="true">→</span>
+  </a>
+</div>
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur-lg">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+    <a href="/" aria-label="SUMA, inicio">
+      <img src="/logos/suma-blanco.png" alt="SUMA" width="120" height="68" class="h-8 w-auto" />
+    </a>
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Principal">
+      {
+        links.map(([label, href]) => (
+          <a href={href} class="text-sm font-medium text-mute transition hover:text-bone">
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+    <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn btn-volt !px-5 !py-2.5">
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<script>
+  const bar = document.getElementById('promo-bar');
+  if (bar && Date.now() > new Date(bar.dataset.end ?? '').getTime()) bar.remove();
+</script>

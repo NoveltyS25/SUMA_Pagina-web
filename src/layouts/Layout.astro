@@ -1,0 +1,102 @@
+---
+import '@fontsource/barlow-condensed/600.css';
+import '@fontsource/barlow-condensed/800.css';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import { SITE_URL, WA_NUMBER, faqs, PRICE_MONTH } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'SUMA | Tarjetas de fidelización digital para tu negocio',
+  description = 'SUMA pone la tarjeta de fidelización en el celular de tus clientes (Apple y Google Wallet), conectada a tu caja. Más visitas, datos propios y cero cambios en tu operación.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE_URL).href;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'SUMA',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logos/suma-negro.png`,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: `+${WA_NUMBER}`,
+      contactType: 'sales',
+      areaServed: 'CO',
+      availableLanguage: 'es',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'SUMA',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Apple Wallet, Google Wallet',
+    description,
+    offers: {
+      '@type': 'Offer',
+      price: PRICE_MONTH,
+      priceCurrency: 'COP',
+      description: 'Membresía mensual por sede',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0b" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="SUMA" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body class="min-h-screen overflow-x-hidden bg-ink font-sans text-bone antialiased">
+    <slot />
+    <script>
+      // Scroll reveal
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
