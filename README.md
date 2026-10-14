@@ -1,43 +1,32 @@
-# Astro Starter Kit: Minimal
+# SUMA · Página web
 
-```sh
-npm create astro@latest -- --template minimal
+Sitio de marketing de **SUMA** (tarjetas de fidelización digital) para captar negocios. Español de Colombia. Dominio: sumafidelidad.com · Hosting previsto: Vercel.
+
+## Stack
+Astro 7 (HTML estático, casi 0 JS) + Tailwind 4 + TypeScript. Fuentes autohospedadas con Fontsource (Barlow Condensed y Inter).
+
+## Comandos
+```
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # genera dist/
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Estructura
+- `src/pages/index.astro`: home. Secciones en `src/components/`.
+- `src/pages/politica-de-datos.astro`: política de tratamiento de datos (borrador, falta revisión legal).
+- `src/lib/site.ts`: WhatsApp, fecha de fin de la promo, precios y preguntas frecuentes.
+- `src/styles/global.css`: colores y tipografías (`--color-volt` es el acento, hoy cian `#00E0D0`).
+- `public/logos/`: logos (SUMA blanco/negro con transparencia, Alma, CUPÁ). Pendiente: logo SUMA en vector.
+- `public/og.png`: imagen para redes (1200×630). Se generó con HTML y hay que rehacerla si cambian color o titular.
+- `referencias/`: material de apoyo que no se publica.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Pendientes
+- Push a GitHub (repo `NoveltyS25/SUMA_Pagina-web`, decidir si privado) y conectar con Vercel.
+- Dominio: lo administra el cocreador; conectar DNS a Vercel (y subdominios de clientes, ej. `cupa.sumafidelidad.com`).
+- Logo SUMA en vector y logo de CUPÁ en buena resolución.
+- Política de datos: revisión legal, razón social, NIT, ciudad y correo.
+- Capturas reales de la tarjeta para reemplazar la maqueta del hero.
+- La promo de octubre se oculta sola el 31/10/2026 (`PROMO_END` en `site.ts`).
+- Pagos en línea: botón desactivado "Pronto" en Precios.
