@@ -15,7 +15,7 @@ npm run preview
 
 ## Estructura
 - `src/pages/index.astro`: home. Secciones en `src/components/`.
-- `src/pages/politica-de-datos.astro`: política de tratamiento de datos (borrador, falta revisión legal).
+- `src/pages/politica-de-datos.astro`: política de tratamiento de datos (aprobada, revisión legal confirmada 2026-10-15).
 - `src/lib/site.ts`: WhatsApp, fecha de fin de la promo, precios y preguntas frecuentes.
 - `src/styles/global.css`: colores y tipografías (`--color-volt` es el acento, hoy lima `#c6ff3d`).
 - `public/logos/`: logos (SUMA blanco/negro con transparencia, Alma, CUPÁ). Pendiente: logo SUMA en vector.
@@ -26,7 +26,6 @@ npm run preview
 - Conectar el repo `NoveltyS25/SUMA_Pagina-web` a Cloudflare (Workers & Pages > Create > Import repository). Build: `npm run build`, deploy: `npx wrangler deploy`.
 - Dominio: lo administra el cocreador; agregar el dominio custom en el Worker (y subdominios de clientes, ej. `cupa.sumafidelidad.com`).
 - Logo SUMA en vector y logo de CUPÁ en buena resolución.
-- Política de datos: revisión legal, razón social, NIT, ciudad y correo.
 - Capturas reales de la tarjeta para reemplazar la maqueta del hero.
 - La promo de octubre se oculta sola el 31/10/2026 (`PROMO_END` en `site.ts`).
 - Pagos en línea: botón desactivado "Pronto" en Precios.
