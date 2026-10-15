@@ -65,7 +65,7 @@ const jsonLd = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="theme-color" content="#0f0f0f" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -86,7 +86,7 @@ const jsonLd = [
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
-  <body class="min-h-screen overflow-x-hidden bg-ink font-sans text-bone antialiased">
+  <body class="relative min-h-screen overflow-x-hidden font-sans text-bone antialiased">
     <slot />
     <script>
       // Scroll reveal

@@ -2,21 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import LogoMarquee from '../components/LogoMarquee.astro';
+// Carrusel de clientes oculto mientras haya uno solo. Para volver a mostrarlo: importar LogoMarquee y poner <LogoMarquee /> despues de <Hero />.
+import Stats from '../components/Stats.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import Benefits from '../components/Benefits.astro';
 import Pricing from '../components/Pricing.astro';
 import RoiCalc from '../components/RoiCalc.astro';
 import Faq from '../components/Faq.astro';
 import FinalCta from '../components/FinalCta.astro';
+import Trail from '../components/Trail.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
   <Header />
-  <main>
+  <main class="relative">
+    <Trail />
     <Hero />
-    <LogoMarquee />
+    <Stats />
     <HowItWorks />
     <Benefits />
     <Pricing />

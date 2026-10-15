@@ -1,0 +1,66 @@
+---
+// Línea fina que sale del hero por la derecha y baja en zigzag por toda la página,
+// con destellos e isologos que flotan. Va detrás del contenido (z negativo).
+// Las posiciones son porcentajes de la altura de <main>, así acompañan al contenido.
+import Mark from './Mark.astro';
+import Sparkle from './Sparkle.astro';
+
+const d =
+  'M1480 70 C900 70 150 80 150 200 ' +
+  'C150 277 1300 277 1300 354 ' +
+  'C1300 431 150 431 150 508 ' +
+  'C150 584 1300 584 1300 660 ' +
+  'C1300 737 150 737 150 815 ' +
+  'C150 877 720 877 720 940';
+
+// [izquierda %, arriba %, tamaño (tailwind), opacidad]
+const sparkles: [number, number, string, string][] = [
+  [10, 20, 'size-6', 'text-volt'],
+  [50, 27.5, 'size-4', 'text-volt/70'],
+  [90, 35.4, 'size-8', 'text-volt'],
+  [50, 43, 'size-5', 'text-volt/80'],
+  [10, 50.8, 'size-7', 'text-volt'],
+  [50, 58.3, 'size-4', 'text-volt/70'],
+  [90, 66, 'size-6', 'text-volt'],
+  [50, 73.5, 'size-5', 'text-volt/80'],
+  [10, 81.5, 'size-8', 'text-volt'],
+  [50, 90, 'size-6', 'text-volt/80'],
+];
+
+// [kind, izquierda %, arriba %, clases]
+const marks: ['arch' | 'pin', number, number, string][] = [
+  ['arch', 14, 30, 'w-24 text-volt/[0.09]'],
+  ['pin', 86, 46, 'h-32 rotate-[16deg] text-volt/[0.09]'],
+  ['arch', 88, 72, 'w-28 text-forest/40'],
+  ['pin', 12, 64, 'h-28 -rotate-[14deg] text-forest/40'],
+  ['arch', 84, 24, 'w-20 text-forest/40'],
+];
+---
+
+<div aria-hidden="true" class="pointer-events-none absolute inset-0 z-[-1] overflow-hidden opacity-60 md:opacity-100">
+  <svg class="absolute inset-0 h-full w-full" viewBox="0 0 1440 1000" preserveAspectRatio="none" fill="none">
+    <path d={d} stroke="#5dd62c" stroke-opacity=".5" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+    <path
+      d={d}
+      transform="translate(0 14)"
+      stroke="#5dd62c"
+      stroke-opacity=".2"
+      stroke-width="1"
+      vector-effect="non-scaling-stroke"></path>
+  </svg>
+  {
+    sparkles.map(([l, t, size, color], i) => (
+      <Sparkle
+        class={`twinkle absolute -translate-x-1/2 -translate-y-1/2 ${size} ${color}`}
+        style={`left:${l}%;top:${t}%;animation-delay:-${(i * 0.7).toFixed(1)}s`}
+      />
+    ))
+  }
+  {
+    marks.map(([kind, l, t, cls]) => (
+      <div class="absolute -translate-x-1/2 -translate-y-1/2" style={`left:${l}%;top:${t}%`}>
+        <Mark kind={kind} class={cls} />
+      </div>
+    ))
+  }
+</div>

@@ -1,9 +1,15 @@
 ---
 import { WA_CONTACT, WA_DEMO } from '../lib/site';
+import Mark from './Mark.astro';
+import Sparkle from './Sparkle.astro';
 ---
 
 <section class="px-4 pb-24 sm:px-6">
-  <div class="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-volt px-6 py-20 text-center text-ink sm:px-12 sm:py-28">
+  <div class="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-volt px-6 py-20 text-center text-ink shadow-[0_40px_100px_-30px_rgba(93,214,44,0.4)] sm:px-12 sm:py-28" style="background-image:radial-gradient(500px 400px at 0% 0%,rgba(255,255,255,.22),transparent 60%),linear-gradient(160deg,#5dd62c,#3f9a1d)">
+    <Sparkle class="twinkle pointer-events-none absolute left-[12%] top-14 size-8 text-ink/40" />
+    <Sparkle class="twinkle pointer-events-none absolute bottom-16 right-[14%] size-10 text-white/60" />
+    <Mark kind="arch" class="pointer-events-none absolute -bottom-10 -left-16 w-[420px] text-ink/10" />
+    <Mark kind="pin" class="pointer-events-none absolute -right-6 -top-8 hidden h-72 rotate-[16deg] text-ink/10 sm:block" />
     <h2 class="mx-auto max-w-4xl text-6xl sm:text-8xl lg:text-9xl">¿Encendemos tu club?</h2>
     <p class="mx-auto mt-6 max-w-xl text-lg font-medium">
       Cuéntanos de tu negocio y te mostramos SUMA funcionando, sin compromiso.

@@ -1,0 +1,23 @@
+---
+// Isologos de SUMA como marcas de agua sutiles. Hereda el color con currentColor.
+interface Props {
+  kind?: 'arch' | 'pin';
+  class?: string;
+}
+const { kind = 'arch', class: cls = '' } = Astro.props;
+// Flotan suave; cada uno con su propio ritmo para que no se muevan al unísono.
+const drift = `animation-duration:${(8 + Math.random() * 6).toFixed(1)}s;animation-delay:-${(Math.random() * 10).toFixed(1)}s`;
+---
+
+{
+  kind === 'arch' ? (
+    <svg viewBox="40 249 730 514" fill="currentColor" aria-hidden="true" focusable="false" class={`drift ${cls}`} style={drift}>
+      <path d="M769.8 613.8C769.8 415.1 603.7 249 405 249S40.2 415.1 40.2 613.8h202.6c0-88.4 73.9-162.3 162.2-162.3s162.3 73.9 162.3 162.3z" />
+      <circle cx="405" cy="678" r="84" />
+    </svg>
+  ) : (
+    <svg viewBox="257 61 296 890" fill="currentColor" aria-hidden="true" focusable="false" class={`drift ${cls}`} style={drift}>
+      <path fill-rule="evenodd" d="M259.4 231.7A147.4 147.4 0 1 1 550.6 231.7L405 950.6zM405 181a65 65 0 1 0 0 130 65 65 0 0 0 0-130z" />
+    </svg>
+  )
+}

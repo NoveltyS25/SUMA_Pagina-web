@@ -2,7 +2,7 @@
 import { PRICE_MONTH, PRICE_PROMO_MONTH } from '../lib/site';
 ---
 
-<section class="border-t border-white/10 bg-ink-2/40">
+<section class="border-t border-white/10 bg-black/20">
   <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:py-32">
     <div class="reveal">
       <p class="eyebrow mb-4">Calculadora</p>
@@ -15,7 +15,7 @@ import { PRICE_MONTH, PRICE_PROMO_MONTH } from '../lib/site';
 
     <div
       id="roi"
-      class="reveal rounded-3xl border border-white/10 bg-ink p-7 sm:p-9"
+      class="reveal panel panel-glow p-7 sm:p-9"
       data-price={PRICE_MONTH}
       data-promo={PRICE_PROMO_MONTH}
     >
@@ -35,7 +35,7 @@ import { PRICE_MONTH, PRICE_PROMO_MONTH } from '../lib/site';
       </label>
 
       <div class="mt-9 grid grid-cols-2 gap-4">
-        <div class="rounded-2xl bg-ink-2 p-5">
+        <div class="rounded-2xl bg-white/[0.04] p-5">
           <p class="text-xs text-mute">Te queda por visita</p>
           <p id="profit" class="mt-1 font-display text-4xl font-extrabold">$18.000</p>
         </div>

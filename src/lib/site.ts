@@ -13,7 +13,7 @@ export const WA_PROMO = wa('Hola, quiero aprovechar la promo de SUMA (paga 3 mes
 export const PROMO_END = '2026-10-31T23:59:59-05:00';
 
 export const PRICE_MONTH = 240000;
-export const PRICE_PROMO_MONTH = 180000;
+export const PRICE_PROMO_MONTH = 120000;
 
 export const faqs = [
   {
@@ -35,6 +35,18 @@ export const faqs = [
   {
     q: '¿Puedo avisarles de promos y eventos?',
     a: 'Sí. Es un canal directo al celular del cliente para llenar el happy hour, anunciar eventos y celebrar fechas especiales sin depender solo de redes sociales.',
+  },
+  {
+    q: '¿Hay límite de tarjetas, sellos o clientes?',
+    a: 'No. La membresía incluye tarjetas, sellos y bases de datos ilimitados.',
+  },
+  {
+    q: '¿Personalizar mi tarjeta tiene costo extra?',
+    a: 'No. El diseño de la tarjeta y su funcionamiento (categorías, sellos para llegar al premio, tipo de premio y notificaciones) los ajustamos a tu negocio sin cobro adicional.',
+  },
+  {
+    q: '¿Qué notificaciones puedo activar?',
+    a: 'Las que tú decidas. Por ejemplo, un aviso cuando un cliente pasa cerca de tu local, o cuando llevan cierta cantidad de días sin volver.',
   },
   {
     q: '¿Hay permanencia?',

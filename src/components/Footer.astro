@@ -1,8 +1,10 @@
 ---
 import { WA_CONTACT, WA_DISPLAY } from '../lib/site';
+import Mark from './Mark.astro';
 ---
 
-<footer class="border-t border-white/10">
+<footer class="relative overflow-hidden border-t border-white/10">
+  <Mark kind="arch" class="pointer-events-none absolute -right-10 -top-6 w-72 text-white/[0.04]" />
   <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between">
     <div>
       <img src="/logos/suma-blanco.png" alt="SUMA" width="120" height="68" class="h-9 w-auto" loading="lazy" />
