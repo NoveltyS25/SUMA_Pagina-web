@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { WA_CONTACT, WA_DISPLAY, PRICE_MONTH } from '../lib/site';
+
+const updated = '15 de octubre de 2026';
+---
+
+<Layout
+  title="Términos y condiciones | SUMA"
+  description="Condiciones de uso del sitio sumafidelidad.com, del servicio SUMA para negocios y del programa de fidelización para clientes finales."
+>
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:py-24">
+    <p class="eyebrow mb-4">Legal</p>
+    <h1 class="text-5xl sm:text-7xl">Términos y condiciones</h1>
+    <p class="mt-5 text-sm text-mute">Última actualización: {updated}</p>
+
+    <div
+      class="mt-10 [&_a]:text-volt [&_a]:underline [&_h2]:mt-12 [&_h2]:text-3xl [&_h2]:normal-case [&_h2]:leading-tight [&_li]:mt-2 [&_p]:mt-3 [&_p]:leading-relaxed [&_p]:text-bone/80 [&_li]:text-bone/80 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-6"
+    >
+      <p>
+        Estos términos aplican al sitio <b>sumafidelidad.com</b>, al servicio <b>SUMA</b> para
+        negocios y al programa de fidelización digital que SUMA opera por cuenta de cada negocio
+        afiliado. Al usar el sitio, contratar el servicio o registrarte en la tarjeta digital de un
+        negocio afiliado, aceptas estas condiciones. El tratamiento de tus datos personales se rige
+        por nuestra <a href="/politica-de-datos">política de tratamiento de datos personales</a>.
+      </p>
+
+      <h2>1. Qué es SUMA</h2>
+      <p>
+        SUMA es una plataforma de fidelización digital: reemplaza el cartón de sellos físico por
+        una tarjeta en Apple Wallet o Google Wallet, conectada al punto de venta del negocio
+        afiliado. SUMA no vende ni factura los productos o servicios del negocio — esa relación es
+        directamente entre el cliente final y el negocio.
+      </p>
+
+      <h2>2. El sitio web</h2>
+      <p>
+        El contenido de <b>sumafidelidad.com</b> (textos, precios, diseño, logos) es informativo y
+        puede actualizarse sin previo aviso. Los precios y condiciones comerciales vigentes para un
+        negocio específico son los acordados por escrito al contratar el servicio, no los que
+        aparezcan en el sitio en un momento dado.
+      </p>
+
+      <h2>3. Servicio para negocios afiliados</h2>
+      <ul>
+        <li>
+          La suscripción tiene una permanencia mínima de 12 meses, con una membresía mensual de
+          <b>${PRICE_MONTH.toLocaleString('es-CO')} COP</b> por la primera sede y un valor adicional
+          por cada sede extra, según el plan vigente al contratar.
+        </li>
+        <li>
+          El negocio es responsable de la información que entrega sobre su programa (nombre de
+          categorías, umbrales, premios) y de operar su punto de venta correctamente para que los
+          sellos se registren.
+        </li>
+        <li>
+          SUMA puede suspender el servicio por falta de pago, mal uso de la plataforma o
+          incumplimiento de estas condiciones, previo aviso cuando sea razonablemente posible.
+        </li>
+      </ul>
+
+      <h2>4. Programa de fidelización para clientes finales</h2>
+      <ul>
+        <li>
+          Cada negocio define sus propias reglas (sellos requeridos, categorías, premios), visibles
+          al momento del registro y dentro de la tarjeta digital.
+        </li>
+        <li>
+          Los sellos y premios no tienen valor en dinero, no son transferibles entre personas ni
+          canjeables por efectivo, y aplican únicamente en el negocio donde se obtuvieron.
+        </li>
+        <li>
+          El negocio puede ajustar sus reglas de premio hacia adelante; los cambios no afectan
+          sellos ya acumulados bajo las reglas anteriores.
+        </li>
+        <li>
+          Si un negocio deja de operar con SUMA, su programa de fidelización y las tarjetas
+          asociadas dejan de estar activos — SUMA avisará por los canales disponibles cuando esto
+          ocurra.
+        </li>
+      </ul>
+
+      <h2>5. Uso aceptable</h2>
+      <p>
+        No está permitido intentar vulnerar la seguridad de la plataforma, crear registros falsos,
+        automatizar el registro de sellos de forma fraudulenta, ni usar el sitio o el servicio para
+        fines distintos a los aquí descritos.
+      </p>
+
+      <h2>6. Propiedad intelectual</h2>
+      <p>
+        El nombre, logo y diseño de SUMA son propiedad de Novelty Studios. El nombre, logo y marca
+        de cada negocio afiliado siguen siendo propiedad de ese negocio; SUMA los usa únicamente
+        para operar su tarjeta de fidelización.
+      </p>
+
+      <h2>7. Límite de responsabilidad</h2>
+      <p>
+        SUMA hace su mejor esfuerzo para que el servicio esté disponible y funcione correctamente,
+        pero no garantiza disponibilidad ininterrumpida. SUMA no es responsable por la calidad de
+        los productos o servicios del negocio afiliado, ni por decisiones comerciales que el
+        negocio tome sobre su propio programa de fidelización.
+      </p>
+
+      <h2>8. Cambios a estos términos</h2>
+      <p>
+        Podemos actualizar estos términos. Publicaremos la versión vigente en esta página con su
+        fecha de actualización y, si el cambio es sustancial, lo comunicaremos por los canales
+        disponibles.
+      </p>
+
+      <h2>9. Contacto</h2>
+      <p>
+        Escríbenos por WhatsApp al <a href={WA_CONTACT} target="_blank" rel="noopener">{WA_DISPLAY}</a>.
+      </p>
+    </div>
+  </main>
+  <Footer />
+</Layout>
