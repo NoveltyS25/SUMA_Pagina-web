@@ -6,7 +6,7 @@
   --color-line: #26262b;
   --color-bone: #f4f4ef;
   --color-mute: #9a9aa2;
-  --color-volt: #00e0d0;
+  --color-volt: #c6ff3d;
 
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-sans: "Inter Variable", system-ui, sans-serif;
@@ -41,7 +41,7 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold transition duration-200;
   }
   .btn-volt {
-    @apply bg-volt text-ink hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-6px_rgba(0,224,208,0.55)];
+    @apply bg-volt text-ink hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-6px_rgba(198,255,61,0.55)];
   }
   .btn-ghost {
     @apply border border-white/20 text-bone hover:border-volt hover:text-volt;
