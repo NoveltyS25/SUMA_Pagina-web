@@ -85,6 +85,16 @@ const jsonLd = [
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <script is:inline>document.documentElement.classList.add('js');</script>
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-9X1NQT72YJ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9X1NQT72YJ');
+    </script>
   </head>
   <body class="relative min-h-screen overflow-x-hidden font-sans text-bone antialiased">
     <slot />
