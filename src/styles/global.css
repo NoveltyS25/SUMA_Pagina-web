@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0f0f0f;
-  --color-ink-2: #202020;
-  --color-line: #2a2a2a;
-  --color-bone: #f8f8f8;
-  --color-mute: #a3a3a3;
-  --color-volt: #5dd62c;
-  --color-forest: #337418;
+  --color-ink: #1a012e;
+  --color-ink-2: #2a0447;
+  --color-line: #3d1264;
+  --color-bone: #f8f5fc;
+  --color-mute: #b5a3c9;
+  --color-volt: #c58bff;
+  --color-royal: #6002ab;
+  --color-forest: #370063;
 
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-sans: "Inter Variable", system-ui, sans-serif;
@@ -28,7 +29,7 @@
     line-height: 0.92;
     letter-spacing: -0.005em;
   }
-  /* Fondo con profundidad: luces verdes difusas + grano. Fijo para que no pese al hacer scroll. */
+  /* Fondo con profundidad: luces moradas difusas + grano. Fijo para que no pese al hacer scroll. */
   body::before {
     content: "";
     position: fixed;
@@ -36,10 +37,10 @@
     z-index: -2;
     pointer-events: none;
     background:
-      radial-gradient(900px 600px at 85% -5%, rgba(93, 214, 44, 0.3), transparent 60%),
-      radial-gradient(800px 700px at -10% 45%, rgba(51, 116, 24, 0.5), transparent 60%),
-      radial-gradient(1000px 700px at 100% 105%, rgba(51, 116, 24, 0.55), transparent 60%),
-      linear-gradient(180deg, #131313 0%, #0f0f0f 40%, #0b0b0b 100%);
+      radial-gradient(900px 600px at 85% -5%, rgba(96, 2, 171, 0.55), transparent 60%),
+      radial-gradient(800px 700px at -10% 45%, rgba(55, 0, 99, 0.7), transparent 60%),
+      radial-gradient(1000px 700px at 100% 105%, rgba(96, 2, 171, 0.4), transparent 60%),
+      linear-gradient(180deg, #1f0238 0%, #1a012e 40%, #14011f 100%);
   }
   body::after {
     content: "";
@@ -65,7 +66,7 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold transition duration-200;
   }
   .btn-volt {
-    @apply bg-volt text-ink hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-6px_rgba(93,214,44,0.5)];
+    @apply bg-royal text-bone ring-1 ring-volt/40 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_-6px_rgba(197,139,255,0.6)];
   }
   .btn-ghost {
     @apply border border-white/20 text-bone hover:border-volt hover:text-volt;
@@ -73,23 +74,23 @@
   /* Tarjeta de vidrio oscuro: degradado, borde con luz arriba y sombra profunda */
   .panel {
     @apply relative rounded-3xl border border-white/10 backdrop-blur-sm;
-    background: linear-gradient(160deg, rgba(40, 40, 40, 0.75) 0%, rgba(24, 24, 24, 0.75) 55%, rgba(15, 15, 15, 0.8) 100%);
+    background: linear-gradient(160deg, rgba(62, 14, 102, 0.6) 0%, rgba(42, 4, 71, 0.7) 55%, rgba(26, 1, 46, 0.8) 100%);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.07),
       0 30px 60px -30px rgba(0, 0, 0, 0.8);
   }
   /* Borde neón verde, como en las referencias */
   .panel-glow {
-    border-color: rgba(93, 214, 44, 0.35);
+    border-color: rgba(197, 139, 255, 0.35);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 0 50px -12px rgba(93, 214, 44, 0.35),
+      0 0 50px -12px rgba(197, 139, 255, 0.35),
       0 30px 60px -30px rgba(0, 0, 0, 0.8);
   }
   .panel-green {
     background:
-      radial-gradient(500px 300px at 100% 0%, rgba(93, 214, 44, 0.12), transparent 70%),
-      linear-gradient(160deg, rgba(40, 40, 40, 0.75) 0%, rgba(15, 15, 15, 0.85) 100%);
+      radial-gradient(500px 300px at 100% 0%, rgba(197, 139, 255, 0.14), transparent 70%),
+      linear-gradient(160deg, rgba(62, 14, 102, 0.6) 0%, rgba(26, 1, 46, 0.85) 100%);
   }
   .eyebrow {
     @apply font-display text-lg font-semibold uppercase tracking-[0.18em] text-volt;

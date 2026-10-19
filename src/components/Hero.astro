@@ -29,13 +29,13 @@ for (let y = 0; y < 21; y++)
 <section class="relative overflow-hidden">
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -right-40 top-0 h-[640px] w-[640px] rounded-full bg-volt/20 blur-[140px]"
+    class="pointer-events-none absolute -right-40 top-0 h-[640px] w-[640px] rounded-full bg-royal/50 blur-[140px]"
   >
   </div>
   <Mark kind="arch" class="pointer-events-none absolute -left-24 bottom-0 hidden w-[520px] text-volt/[0.05] lg:block" />
   <svg aria-hidden="true" class="pointer-events-none absolute inset-0 hidden h-full w-full lg:block" viewBox="0 0 1440 800" preserveAspectRatio="none" fill="none">
-    <path d="M-20 560C220 760 420 700 560 520S900 120 1180 190s300 260 300 260" stroke="#5dd62c" stroke-opacity=".3" stroke-width="1.5" />
-    <path d="M-20 600C240 800 460 760 620 570S950 170 1210 230s250 230 250 230" stroke="#5dd62c" stroke-opacity=".12" stroke-width="1" />
+    <path d="M-20 560C220 760 420 700 560 520S900 120 1180 190s300 260 300 260" stroke="#c58bff" stroke-opacity=".3" stroke-width="1.5" />
+    <path d="M-20 600C240 800 460 760 620 570S950 170 1210 230s250 230 250 230" stroke="#c58bff" stroke-opacity=".12" stroke-width="1" />
   </svg>
   <Sparkle class="twinkle pointer-events-none absolute left-[46%] top-24 size-7 text-volt" />
   <Sparkle class="twinkle pointer-events-none absolute left-[2%] top-[92%] size-5 text-volt/70" />
@@ -83,7 +83,7 @@ for (let y = 0; y < 21; y++)
     <div class="relative mx-auto w-full max-w-[340px]">
       <div
         aria-hidden="true"
-        class="absolute left-1/2 top-1/2 size-[440px] -translate-x-[45%] -translate-y-[48%] rounded-full bg-gradient-to-br from-volt via-volt to-forest shadow-[0_0_140px_30px_rgba(93,214,44,0.35)] sm:size-[520px]"
+        class="absolute left-1/2 top-1/2 size-[440px] -translate-x-[45%] -translate-y-[48%] rounded-full bg-gradient-to-br from-royal via-royal to-forest shadow-[0_0_140px_30px_rgba(96,2,171,0.5)] sm:size-[520px]"
       >
       </div>
       <div
@@ -100,7 +100,7 @@ for (let y = 0; y < 21; y++)
         </div>
 
         <!-- Tarjeta de Wallet -->
-        <div class="relative mx-3 mt-5 overflow-hidden rounded-2xl p-3.5 text-white shadow-[0_18px_30px_-12px_rgba(0,0,0,0.55)]" style="background:radial-gradient(240px 140px at 100% 0%,rgba(93,214,44,0.35),transparent 70%),linear-gradient(165deg,#1d1d1d 0%,#0f0f0f 100%)">
+        <div class="relative mx-3 mt-5 overflow-hidden rounded-2xl p-3.5 text-white shadow-[0_18px_30px_-12px_rgba(0,0,0,0.55)]" style="background:radial-gradient(240px 140px at 100% 0%,rgba(197,139,255,0.35),transparent 70%),linear-gradient(165deg,#2a0447 0%,#1a012e 100%)">
           <div class="absolute inset-x-0 top-[34%] h-[18%] bg-gradient-to-b from-transparent via-white/[0.08] to-transparent"></div>
           <div class="relative flex items-start justify-between">
             <span class="flex size-11 items-center justify-center rounded-full border border-dashed border-volt/70 text-[8px] font-bold uppercase leading-tight text-volt">
@@ -122,7 +122,7 @@ for (let y = 0; y < 21; y++)
                   <span
                     class:list={[
                       'flex aspect-square items-center justify-center rounded-full',
-                      on ? 'bg-volt shadow-[0_0_12px_rgba(93,214,44,0.6)]' : 'border border-dashed border-white/40',
+                      on ? 'bg-volt shadow-[0_0_12px_rgba(197,139,255,0.6)]' : 'border border-dashed border-white/40',
                     ]}
                   >
                     {on && (
@@ -146,7 +146,7 @@ for (let y = 0; y < 21; y++)
           <div class="relative mx-auto mt-4 w-[104px] rounded-md bg-white p-2">
             <svg viewBox="0 0 21 21" class="block w-full" shape-rendering="crispEdges" aria-hidden="true">
               {
-                qr.map(([x, y]) => <rect x={x} y={y} width="1" height="1" fill="#0f0f0f" />)
+                qr.map(([x, y]) => <rect x={x} y={y} width="1" height="1" fill="#1a012e" />)
               }
             </svg>
           </div>
@@ -159,8 +159,8 @@ for (let y = 0; y < 21; y++)
         <!-- Otras tarjetas asomando (sin marcas) -->
         <div class="absolute inset-x-0 bottom-0 h-[96px] overflow-hidden rounded-b-[42px]" aria-hidden="true">
           <div class="absolute inset-x-6 top-0 h-14 rounded-t-[22px] bg-forest"></div>
-          <div class="absolute inset-x-3 top-3 h-14 rounded-t-[22px] bg-[#2a2a2c]"></div>
-          <div class="absolute inset-x-0 top-6 h-20 rounded-t-[22px] bg-gradient-to-b from-volt to-[#3f9a1d]"></div>
+          <div class="absolute inset-x-3 top-3 h-14 rounded-t-[22px] bg-[#2a0447]"></div>
+          <div class="absolute inset-x-0 top-6 h-20 rounded-t-[22px] bg-gradient-to-b from-volt to-[#370063]"></div>
         </div>
       </div>
 
