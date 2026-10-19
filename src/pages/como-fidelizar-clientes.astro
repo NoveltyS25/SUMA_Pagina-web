@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_URL, WA_DEMO } from '../lib/site';
+
+const title = 'Cómo fidelizar clientes: 7 estrategias para un negocio local | SUMA';
+const description =
+  'Guía práctica de cómo fidelizar clientes en cafeterías, restaurantes y tiendas: tarjeta de sellos digital, premios, categorías, avisos y datos propios.';
+const published = '2026-10-19';
+
+const jsonLdExtra = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Cómo fidelizar clientes: 7 estrategias para un negocio local',
+    description,
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'es-CO',
+    mainEntityOfPage: `${SITE_URL}/como-fidelizar-clientes`,
+    image: `${SITE_URL}/og.png`,
+    author: { '@type': 'Organization', name: 'SUMA', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'SUMA', url: SITE_URL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Cómo fidelizar clientes', item: `${SITE_URL}/como-fidelizar-clientes` },
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description} type="article" jsonLdExtra={jsonLdExtra} withFaq={false}>
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:py-24">
+    <nav aria-label="Ruta" class="text-sm text-mute">
+      <a class="hover:text-bone" href="/">Inicio</a> <span aria-hidden="true">/</span> Cómo fidelizar clientes
+    </nav>
+    <h1 class="mt-6 text-5xl sm:text-7xl">Cómo fidelizar clientes</h1>
+    <p class="mt-5 text-sm text-mute">Actualizado el 19 de octubre de 2026</p>
+
+    <p class="mt-8 text-xl leading-relaxed">
+      <b>Fidelizar clientes</b> es lograr que vuelvan a tu negocio sin que tengas que perseguirlos. Lo que
+      mejor funciona en un negocio local es simple: <b>recompensar cada visita</b>, hacerlo fácil
+      (una tarjeta de sellos digital en el celular) y <b>conocer a tus clientes</b> para hablarles en
+      el momento justo.
+    </p>
+
+    <img
+      src="/img/foto-cafe-mostrador.webp"
+      alt="Mostrador de una cafetería con clientes habituales"
+      width="1200"
+      height="800"
+      loading="lazy"
+      class="mt-10 aspect-[16/9] w-full rounded-3xl border border-white/10 object-cover"
+    />
+
+    <div
+      class="mt-10 [&_a]:text-volt [&_a]:underline [&_h2]:mt-12 [&_h2]:text-3xl [&_h2]:normal-case [&_h2]:leading-tight [&_li]:mt-2 [&_li]:text-bone/80 [&_p]:mt-3 [&_p]:leading-relaxed [&_p]:text-bone/80 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-6"
+    >
+      <h2>1. Usa una tarjeta de fidelización digital</h2>
+      <p>
+        El cartón de sellos se pierde, se moja y se olvida en casa. Una <a href="/">tarjeta de
+        fidelización digital</a> vive en Apple Wallet o Google Wallet, siempre a mano, y no obliga al cliente a
+        descargar una app.
+      </p>
+
+      <h2>2. Define un premio claro y alcanzable</h2>
+      <p>
+        «10 sellos y el próximo café es gratis» se entiende al instante. Si el premio tarda demasiado
+        en llegar, el cliente se desmotiva; si llega muy rápido, te cuesta margen. Empieza con una meta
+        corta y ajústala con los datos.
+      </p>
+
+      <h2>3. Hazlo rápido en caja</h2>
+      <p>
+        Si sumar un sello toma más de unos segundos, tu equipo dejará de hacerlo. Lo ideal es que el
+        sello se sume solo desde la caja, sin cambiar la forma de cobrar.
+      </p>
+
+      <h2>4. Crea categorías para premiar a los mejores clientes</h2>
+      <p>
+        Los clientes que más gastan merecen algo más: una categoría superior, un beneficio extra, un
+        trato especial. Los niveles dan una razón para seguir subiendo.
+      </p>
+
+      <h2>5. Aprovecha los datos de tus clientes</h2>
+      <p>Con la tarjeta digital puedes saber:</p>
+      <ul>
+        <li>Quién vuelve y con qué frecuencia.</li>
+        <li>Cuánto gasta cada cliente.</li>
+        <li>Quién dejó de venir y conviene reactivar.</li>
+      </ul>
+      <p>Recuerda pedir su autorización para contactarlos con promociones.</p>
+
+      <h2>6. Avísales en el momento justo</h2>
+      <p>
+        Una notificación en la pantalla del celular llega mejor que una publicación en redes. Úsala
+        para el happy hour, eventos, cumpleaños o cuando un cliente lleva varios días sin visitarte.
+      </p>
+
+      <h2>7. Mide y ajusta</h2>
+      <p>
+        Revisa cada mes cuántos clientes vuelven, cuántos completan la tarjeta y qué promos funcionan.
+        Pequeños ajustes constantes valen más que un gran programa que nadie revisa.
+      </p>
+
+      <h2>¿Cómo funcionan las tarjetas de sellos digitales?</h2>
+      <p>
+        El cliente escanea un QR, se inscribe en unos 30 segundos y guarda su tarjeta en el Wallet del
+        celular. Cada compra suma un sello y, al completar la tarjeta, recibe su premio. SUMA se conecta
+        a tu caja actual, así que tu equipo cobra como siempre.
+      </p>
+    </div>
+
+    <div class="mt-14 rounded-3xl border border-volt/30 bg-volt/10 p-7">
+      <p class="font-display text-3xl font-extrabold uppercase leading-tight">
+        Pon estas ideas en práctica con SUMA
+      </p>
+      <p class="mt-2 text-mute">Tarjeta de sellos digital para tu negocio.</p>
+      <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+        <a href={WA_DEMO} target="_blank" rel="noopener" class="btn btn-volt">Agendar una demo</a>
+        <a href="/#precios" class="btn btn-ghost">Ver precios</a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

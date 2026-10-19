@@ -2,11 +2,10 @@
 import Mark from './Mark.astro';
 import Sparkle from './Sparkle.astro';
 const rows = [
-  ['Se pierde en la billetera', 'Vive en el celular, en Apple y Google Wallet'],
-  ['No sabes quién es tu cliente', 'Sabes quién vuelve, cuánto gasta y quién dejó de venir'],
-  ['Cero forma de avisarles', 'Avisos de promos y eventos directo a su pantalla'],
-  ['Sellos a mano, errores y trampas', 'Cada compra suma sola desde tu caja'],
-];
+  ['Se pierde en la billetera', 'Vive en su celular, en Wallet'],
+  ['No sabes quién es tu cliente', 'Sabes quién vuelve y cuánto gasta'],
+  ['Cero forma de avisarles', 'Promos directo a su pantalla'],
+  ];
 ---
 
 <section id="beneficios" class="relative overflow-hidden border-t border-white/10 bg-black/20">
@@ -26,24 +25,21 @@ const rows = [
         <p class="font-display text-xl font-bold uppercase tracking-wider opacity-70">Clientes que vuelven</p>
         <h3 class="mt-4 text-5xl sm:text-6xl">Un sello a la vez, una visita más.</h3>
         <p class="mt-6 max-w-md text-[15px] font-medium leading-relaxed">
-          El progreso visible en el celular empuja a volver por el siguiente premio. Y mientras más
-          vuelven, más suben de categoría: la tarjeta cambia de color según su gasto de los últimos
-          90 días.
+          Ver su progreso en el celular los empuja a volver por el siguiente premio.
         </p>
       </article>
 
       <article class="reveal panel panel-glow p-7 lg:col-span-3">
         <h3 class="text-4xl">Base de datos propia</h3>
         <p class="mt-3 text-[15px] leading-relaxed text-mute">
-          Quién vuelve, cuánto gasta y quién desapareció. Con autorización del cliente para recibir
-          promociones. Los datos son tuyos.
+          Quién vuelve, cuánto gasta y quién desapareció. Los datos son tuyos.
         </p>
       </article>
 
       <article class="reveal panel panel-glow p-7 lg:col-span-3">
         <h3 class="text-4xl">Cero cambios en caja</h3>
         <p class="mt-3 text-[15px] leading-relaxed text-mute">
-          Nos conectamos a tu POS actual. Tu equipo cobra como siempre, pidiendo la cédula.
+          Nos conectamos a tu caja actual.
         </p>
       </article>
 
@@ -52,8 +48,7 @@ const rows = [
           <div>
             <h3 class="text-4xl">Un canal directo a su celular</h3>
             <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-mute">
-              Llena el happy hour, anuncia eventos y celebra fechas especiales sin depender solo de
-              Instagram.
+              Llena el happy hour y anuncia eventos sin depender de Instagram.
             </p>
           </div>
           <span class="shrink-0 rounded-full border border-volt/40 px-4 py-2 font-display text-lg font-semibold uppercase tracking-wider text-volt">

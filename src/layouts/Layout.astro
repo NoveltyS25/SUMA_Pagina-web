@@ -8,16 +8,29 @@ import { SITE_URL, WA_NUMBER, faqs, PRICE_MONTH } from '../lib/site';
 interface Props {
   title?: string;
   description?: string;
+  type?: 'website' | 'article';
+  jsonLdExtra?: object[];
+  withFaq?: boolean;
 }
 
 const {
-  title = 'SUMA | Tarjetas de fidelización digital para tu negocio',
-  description = 'SUMA pone la tarjeta de fidelización en el celular de tus clientes (Apple y Google Wallet), conectada a tu caja. Más visitas, datos propios y cero cambios en tu operación.',
+  title = 'Tarjetas de fidelización digital y sellos en Wallet | SUMA',
+  description = 'Tarjetas de fidelización digital con sellos en Apple y Google Wallet, conectadas a tu caja. Sin apps. Tus clientes vuelven más y tú ganas sus datos. Desde $240.000/mes.',
+  type = 'website',
+  jsonLdExtra = [],
+  withFaq = true,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 
 const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'SUMA',
+    url: SITE_URL,
+    inLanguage: 'es-CO',
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -31,6 +44,7 @@ const jsonLd = [
       areaServed: 'CO',
       availableLanguage: 'es',
     },
+    areaServed: 'CO',
   },
   {
     '@context': 'https://schema.org',
@@ -46,6 +60,7 @@ const jsonLd = [
       description: 'Membresía mensual por sede',
     },
   },
+  ...jsonLdExtra,
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -55,7 +70,7 @@ const jsonLd = [
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
   },
-];
+].filter((j: any) => withFaq || j['@type'] !== 'FAQPage');
 ---
 
 <!doctype html>
@@ -67,10 +82,12 @@ const jsonLd = [
     <meta name="description" content={description} />
     <meta name="theme-color" content="#1a012e" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es-CO" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:locale" content="es_CO" />
     <meta property="og:site_name" content="SUMA" />
     <meta property="og:title" content={title} />
@@ -81,6 +98,8 @@ const jsonLd = [
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="SUMA: el cartón de sellos ya murió. Tarjetas de fidelización digital." />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${SITE_URL}/og.png`} />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

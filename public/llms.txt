@@ -1,0 +1,12 @@
+# SUMA
+
+> SUMA es una plataforma colombiana de tarjetas de fidelización digital con sellos para Apple Wallet y Google Wallet, conectada a la caja (POS) del negocio. Sin apps para el cliente. Membresía desde $240.000 COP al mes por sede.
+
+## Páginas
+- [Inicio](https://sumafidelidad.com/): qué es SUMA, cómo funciona, precios y preguntas frecuentes
+- [Cómo fidelizar clientes](https://sumafidelidad.com/como-fidelizar-clientes): guía práctica de estrategias de fidelización para negocios locales
+- [Política de datos](https://sumafidelidad.com/politica-de-datos)
+- [Términos y condiciones](https://sumafidelidad.com/terminos-y-condiciones)
+
+## Contacto
+WhatsApp +57 319 329 9348

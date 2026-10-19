@@ -1,0 +1,69 @@
+---
+import Mark from './Mark.astro';
+const verticals = ['Cafeterías', 'Restaurantes', 'Bares', 'Panaderías', 'Tiendas'];
+---
+
+<section id="negocios" class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:py-32">
+  <Mark kind="arch" class="pointer-events-none absolute -left-24 top-10 hidden w-80 text-white/[0.04] md:block" />
+  <div class="grid items-center gap-12 lg:grid-cols-2">
+    <div class="reveal">
+      <p class="eyebrow mb-4">Para tu negocio</p>
+      <h2 class="h2">Que vuelvan, <span class="text-volt">una visita más.</span></h2>
+      <p class="mt-5 max-w-md text-lg text-mute">
+        La tarjeta de sellos digital funciona en cualquier negocio donde el cliente repite.
+      </p>
+      <ul class="mt-7 flex flex-wrap gap-2">
+        {
+          verticals.map((v) => (
+            <li class="rounded-full border border-volt/40 bg-volt/10 px-4 py-1.5 text-sm font-semibold">{v}</li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="reveal grid grid-cols-2 gap-4">
+      <figure class="relative col-span-2 overflow-hidden rounded-3xl border border-white/10">
+        <img
+          src="/img/foto-cafe-mostrador.webp"
+          alt="Mostrador de una cafetería con clientes y baristas atendiendo"
+          width="1200"
+          height="800"
+          loading="lazy"
+          class="aspect-[16/9] w-full object-cover"
+        />
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
+        <figcaption class="absolute bottom-4 left-5 font-display text-2xl font-extrabold uppercase">
+          Clientes que vuelven
+        </figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-3xl border border-white/10">
+        <img
+          src="/img/foto-pago-celular.webp"
+          alt="Cliente pagando con el celular en el mostrador de una cafetería"
+          width="1200"
+          height="800"
+          loading="lazy"
+          class="aspect-square w-full object-cover"
+        />
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
+        <figcaption class="absolute bottom-3 left-4 font-display text-xl font-extrabold uppercase">
+          Cobras igual
+        </figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-3xl border border-white/10">
+        <img
+          src="/img/foto-celular-barra.webp"
+          alt="Cliente mirando su celular en la barra de un café mientras el barista prepara su pedido"
+          width="1200"
+          height="800"
+          loading="lazy"
+          class="aspect-square w-full object-cover"
+        />
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
+        <figcaption class="absolute bottom-3 left-4 font-display text-xl font-extrabold uppercase">
+          Sello al instante
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
