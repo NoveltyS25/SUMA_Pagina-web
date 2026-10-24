@@ -1,7 +1,14 @@
 ---
-import { WA_CONTACT, WA_DEMO } from '../lib/site';
+import { waLinks } from '../lib/site';
+import { ui, type Lang } from '../i18n/ui';
 import Mark from './Mark.astro';
 import Sparkle from './Sparkle.astro';
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].hero;
+const { contact: WA_CONTACT, demo: WA_DEMO } = waLinks(lang);
 const stamps = Array.from({ length: 10 }, (_, i) => i < 6);
 
 // Código QR decorativo (no escaneable): 3 marcadores de esquina + celdas pseudoaleatorias fijas.
@@ -51,21 +58,20 @@ for (let y = 0; y < 21; y++)
     class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 pb-20 pt-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28 lg:pt-20"
   >
     <div>
-      <p class="eyebrow mb-5">El cartón de sellos ya murió</p>
+      <p class="eyebrow mb-5">{t.eyebrow}</p>
       <h1 class="text-[3.6rem] sm:text-[5.2rem] lg:text-[6.4rem]">
-        Tarjetas de fidelización <span class="text-volt">digital</span>
+        {t.h1[0]}<span class="text-volt">{t.h1[1]}</span>{t.h1[2]}
       </h1>
       <p class="mt-7 max-w-xl text-lg leading-relaxed text-mute sm:text-xl">
-        La tarjeta de sellos vive en el Apple Wallet y Google Wallet de tus clientes y se conecta a tu
-        caja. Sin apps, sin cartón.
+        {t.sub}
       </p>
       <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-        <a href={WA_DEMO} target="_blank" rel="noopener" class="btn btn-volt">Agendar una demo</a>
-        <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn btn-ghost">Escribir por WhatsApp</a>
+        <a href={WA_DEMO} target="_blank" rel="noopener" class="btn btn-volt">{t.demo}</a>
+        <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn btn-ghost">{t.wa}</a>
       </div>
       <ul class="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-mute">
         {
-          ['Sin apps que descargar', 'Se inscriben en 30 segundos', 'Conectada a tu caja'].map((t) => (
+          t.bullets.map((t) => (
             <li class="flex items-center gap-2">
               <span class="size-1.5 rounded-full bg-volt" />
               {t}
@@ -100,11 +106,11 @@ for (let y = 0; y < 21; y++)
           <div class="absolute inset-x-0 top-[34%] h-[18%] bg-gradient-to-b from-transparent via-white/[0.08] to-transparent"></div>
           <div class="relative flex items-start justify-between">
             <span class="flex size-11 items-center justify-center rounded-full border border-dashed border-volt/70 text-[8px] font-bold uppercase leading-tight text-volt">
-              Tu<br />logo
+              {t.logo[0]}<br />{t.logo[1]}
             </span>
             <div class="text-right">
-              <p class="font-mono text-[9px] font-bold tracking-widest text-white/80">SELLOS</p>
-              <p class="font-mono text-sm font-bold tracking-wider">6 DE 10</p>
+              <p class="font-mono text-[9px] font-bold tracking-widest text-white/80">{t.stamps}</p>
+              <p class="font-mono text-sm font-bold tracking-wider">{t.stampsOf}</p>
             </div>
           </div>
           <div class="relative mt-4 grid grid-cols-5 gap-2">
@@ -131,12 +137,12 @@ for (let y = 0; y < 21; y++)
           </div>
           <div class="relative mt-4 flex justify-between">
             <div>
-              <p class="font-mono text-[8px] font-bold tracking-widest text-white/60">CLIENTE</p>
-              <p class="text-[13px]">Laura Gómez</p>
+              <p class="font-mono text-[8px] font-bold tracking-widest text-white/60">{t.client}</p>
+              <p class="text-[13px]">{t.clientName}</p>
             </div>
             <div class="text-right">
-              <p class="font-mono text-[8px] font-bold tracking-widest text-white/60">CATEGORÍA</p>
-              <p class="text-[13px] text-volt">Miembro</p>
+              <p class="font-mono text-[8px] font-bold tracking-widest text-white/60">{t.category}</p>
+              <p class="text-[13px] text-volt">{t.member}</p>
             </div>
           </div>
           <div class="relative mx-auto mt-4 w-[104px] rounded-md bg-white p-2">
@@ -164,13 +170,13 @@ for (let y = 0; y < 21; y++)
         class="absolute -left-4 bottom-16 rotate-[-6deg] rounded-2xl border border-white/10 panel !rounded-2xl px-4 py-3 sm:-left-10"
       >
         <p class="font-display text-3xl font-extrabold leading-none text-volt">+1</p>
-        <p class="text-xs text-mute">sello al instante</p>
+        <p class="text-xs text-mute">{t.plus1}</p>
       </div>
       <div
         class="absolute -right-2 bottom-28 rotate-[5deg] rounded-2xl border border-white/10 panel !rounded-2xl px-4 py-3 sm:-right-8"
       >
-        <p class="text-xs text-mute">Cliente nuevo</p>
-        <p class="text-sm font-bold">Registrado en 30 s</p>
+        <p class="text-xs text-mute">{t.newClient}</p>
+        <p class="text-sm font-bold">{t.registered}</p>
       </div>
     </div>
   </div>

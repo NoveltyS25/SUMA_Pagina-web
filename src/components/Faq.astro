@@ -1,21 +1,28 @@
 ---
-import { faqs } from '../lib/site';
+import { ui, type Lang } from '../i18n/ui';
+import { rich } from '../lib/i18n';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].faq;
 ---
 
 <section id="faq" class="mx-auto max-w-4xl px-4 py-24 sm:px-6 lg:py-32">
   <div class="reveal">
-    <p class="eyebrow mb-4">Preguntas</p>
-    <h2 class="h2">Lo que todos preguntan</h2>
+    <p class="eyebrow mb-4">{t.eyebrow}</p>
+    <h2 class="h2">{t.h2}</h2>
   </div>
   <div class="mt-12 divide-y divide-white/10 border-y border-white/10">
     {
-      faqs.map((f) => (
+      t.items.map((f) => (
         <details name="faq" class="group py-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold [&::-webkit-details-marker]:hidden">
             {f.q}
             <span class="text-2xl text-volt transition group-open:rotate-45" aria-hidden="true">+</span>
           </summary>
-          <p class="mt-3 max-w-3xl leading-relaxed text-mute">{f.a}</p>
+          <p class="mt-3 max-w-3xl leading-relaxed text-mute" set:html={rich(f.a, lang)} />
         </details>
       ))
     }

@@ -1,11 +1,13 @@
 ---
 import Mark from './Mark.astro';
 import Sparkle from './Sparkle.astro';
-const rows = [
-  ['Se pierde en la billetera', 'Vive en su celular, en Wallet'],
-  ['No sabes quién es tu cliente', 'Sabes quién vuelve y cuánto gasta'],
-  ['Cero forma de avisarles', 'Promos directo a su pantalla'],
-  ];
+import { ui, type Lang } from '../i18n/ui';
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].benefits;
+const rows = t.rows;
 ---
 
 <section id="beneficios" class="relative overflow-hidden border-t border-white/10 bg-black/20">
@@ -15,44 +17,44 @@ const rows = [
   <Sparkle class="twinkle pointer-events-none absolute bottom-40 left-[5%] size-6 text-volt/70" />
   <div class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:py-32">
     <div class="reveal max-w-3xl">
-      <p class="eyebrow mb-4">Lo que ganas</p>
-      <h2 class="h2">Fidelizar es el nuevo <span class="text-volt">análisis de público.</span></h2>
+      <p class="eyebrow mb-4">{t.eyebrow}</p>
+      <h2 class="h2">{t.h2[0]}<span class="text-volt">{t.h2[1]}</span></h2>
     </div>
 
     <div class="mt-14 grid gap-4 lg:grid-cols-6">
       <article class="reveal relative overflow-hidden rounded-3xl bg-royal p-8 text-bone lg:col-span-3 lg:row-span-2" style="background-image:radial-gradient(500px 400px at 0% 0%,rgba(255,255,255,.22),transparent 60%),linear-gradient(160deg,#6002ab,#370063)">
         <Mark kind="arch" class="pointer-events-none absolute -bottom-6 -right-10 w-64 text-white/10" />
-        <p class="font-display text-xl font-bold uppercase tracking-wider opacity-70">Clientes que vuelven</p>
-        <h3 class="mt-4 text-5xl sm:text-6xl">Un sello a la vez, una visita más.</h3>
+        <p class="font-display text-xl font-bold uppercase tracking-wider opacity-70">{t.big.kicker}</p>
+        <h3 class="mt-4 text-5xl sm:text-6xl">{t.big.title}</h3>
         <p class="mt-6 max-w-md text-[15px] font-medium leading-relaxed">
-          Ver su progreso en el celular los empuja a volver por el siguiente premio.
+          {t.big.text}
         </p>
       </article>
 
       <article class="reveal panel panel-glow p-7 lg:col-span-3">
-        <h3 class="text-4xl">Base de datos propia</h3>
+        <h3 class="text-4xl">{t.data.title}</h3>
         <p class="mt-3 text-[15px] leading-relaxed text-mute">
-          Quién vuelve, cuánto gasta y quién desapareció. Los datos son tuyos.
+          {t.data.text}
         </p>
       </article>
 
       <article class="reveal panel panel-glow p-7 lg:col-span-3">
-        <h3 class="text-4xl">Cero cambios en caja</h3>
+        <h3 class="text-4xl">{t.pos.title}</h3>
         <p class="mt-3 text-[15px] leading-relaxed text-mute">
-          Nos conectamos a tu caja actual.
+          {t.pos.text}
         </p>
       </article>
 
       <article class="reveal panel panel-glow panel-green p-7 lg:col-span-6">
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 class="text-4xl">Un canal directo a su celular</h3>
+            <h3 class="text-4xl">{t.channel.title}</h3>
             <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-mute">
-              Llena el happy hour y anuncia eventos sin depender de Instagram.
+              {t.channel.text}
             </p>
           </div>
           <span class="shrink-0 rounded-full border border-volt/40 px-4 py-2 font-display text-lg font-semibold uppercase tracking-wider text-volt">
-            Avisos y promos
+            {t.channel.tag}
           </span>
         </div>
       </article>
@@ -61,8 +63,8 @@ const rows = [
     <!-- Comparativa -->
     <div class="reveal panel panel-glow mt-20 overflow-hidden">
       <div class="grid grid-cols-2 bg-white/[0.03] font-display text-2xl font-extrabold uppercase tracking-wide sm:text-3xl">
-        <div class="px-5 py-5 text-mute sm:px-8">Cartón de sellos</div>
-        <div class="px-5 py-5 text-volt sm:px-8">Con SUMA</div>
+        <div class="px-5 py-5 text-mute sm:px-8">{t.cmp.bad}</div>
+        <div class="px-5 py-5 text-volt sm:px-8">{t.cmp.good}</div>
       </div>
       {
         rows.map(([bad, good]) => (

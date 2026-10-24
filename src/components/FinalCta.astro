@@ -1,7 +1,15 @@
 ---
-import { WA_CONTACT, WA_DEMO } from '../lib/site';
+import { waLinks } from '../lib/site';
+import { ui, type Lang } from '../i18n/ui';
 import Mark from './Mark.astro';
 import Sparkle from './Sparkle.astro';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].cta;
+const { contact: WA_CONTACT, demo: WA_DEMO } = waLinks(lang);
 ---
 
 <section class="px-4 pb-24 sm:px-6">
@@ -10,16 +18,16 @@ import Sparkle from './Sparkle.astro';
     <Sparkle class="twinkle pointer-events-none absolute bottom-16 right-[14%] size-10 text-white/60" />
     <Mark kind="arch" class="pointer-events-none absolute -bottom-10 -left-16 w-[420px] text-white/10" />
     <Mark kind="pin" class="pointer-events-none absolute -right-6 -top-8 hidden h-72 rotate-[16deg] text-white/10 sm:block" />
-    <h2 class="mx-auto max-w-4xl text-6xl sm:text-8xl lg:text-9xl">¿Encendemos tu club?</h2>
+    <h2 class="mx-auto max-w-4xl text-6xl sm:text-8xl lg:text-9xl">{t.h2}</h2>
     <p class="mx-auto mt-6 max-w-xl text-lg font-medium">
-      Cuéntanos de tu negocio y te mostramos SUMA funcionando, sin compromiso.
+      {t.text}
     </p>
     <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
       <a href={WA_DEMO} target="_blank" rel="noopener" class="btn bg-ink text-volt hover:-translate-y-0.5">
-        Agendar una demo
+        {t.demo}
       </a>
       <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn border border-white/30 text-bone hover:bg-ink hover:text-volt">
-        Escribir por WhatsApp
+        {t.wa}
       </a>
     </div>
   </div>

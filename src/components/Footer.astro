@@ -1,6 +1,15 @@
 ---
-import { WA_CONTACT, WA_DISPLAY } from '../lib/site';
+import { waLinks, WA_DISPLAY } from '../lib/site';
+import { ui, type Lang } from '../i18n/ui';
+import { homeLink } from '../lib/i18n';
 import Mark from './Mark.astro';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].footer;
+const WA_CONTACT = waLinks(lang).contact;
 ---
 
 <footer class="relative overflow-hidden border-t border-white/10">
@@ -8,22 +17,20 @@ import Mark from './Mark.astro';
   <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between">
     <div>
       <img src="/logos/suma-blanco.png" alt="SUMA" width="120" height="68" class="h-9 w-auto" loading="lazy" />
-      <p class="mt-3 text-sm text-mute">Tarjetas de fidelización digital. Con SUMA, todo suma.</p>
+      <p class="mt-3 text-sm text-mute">{t.tagline}</p>
     </div>
-    <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-mute" aria-label="Pie de página">
-      <a class="hover:text-bone" href="/#como-funciona">Cómo funciona</a>
-      <a class="hover:text-bone" href="/#beneficios">Beneficios</a>
-      <a class="hover:text-bone" href="/#precios">Precios</a>
-      <a class="hover:text-bone" href="/#faq">Preguntas</a>
-      <a class="hover:text-bone" href="/como-fidelizar-clientes">Cómo fidelizar clientes</a>
-      <a class="hover:text-bone" href="/politica-de-datos">Política de datos</a>
-      <a class="hover:text-bone" href="/terminos-y-condiciones">Términos y condiciones</a>
+    <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-mute" aria-label={t.navAria}>
+      {t.nav.map(([label, hash]) => <a class="hover:text-bone" href={homeLink(lang, hash)}>{label}</a>)}
+      <a class="hover:text-bone" href="/como-fidelizar-clientes">{t.guide}</a>
+      <a class="hover:text-bone" href="/politica-de-datos">{t.privacy}</a>
+      <a class="hover:text-bone" href="/terminos-y-condiciones">{t.terms}</a>
       <a class="text-volt hover:underline" href={WA_CONTACT} target="_blank" rel="noopener">
-        WhatsApp {WA_DISPLAY}
+        {t.whatsapp} {WA_DISPLAY}
       </a>
     </nav>
   </div>
-  <p class="border-t border-white/5 py-5 text-center text-xs text-mute">
-    © {new Date().getFullYear()} SUMA. Todos los derechos reservados.
+  <p class="mx-auto max-w-4xl border-t border-white/5 px-4 pt-5 text-center text-xs leading-relaxed text-mute/80">{t.coverage}</p>
+  <p class="py-5 text-center text-xs text-mute">
+    © {new Date().getFullYear()} SUMA. {t.rights}
   </p>
 </footer>

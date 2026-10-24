@@ -3,9 +3,16 @@ import '@fontsource/barlow-condensed/600.css';
 import '@fontsource/barlow-condensed/800.css';
 import '@fontsource-variable/inter';
 import '../styles/global.css';
-import { SITE_URL, WA_NUMBER, faqs, PRICE_MONTH } from '../lib/site';
+import { SITE_URL, WA_NUMBER, PRICE_MONTH } from '../lib/site';
+import { ui, LANGS, homePath, type Lang } from '../i18n/ui';
+import { plain } from '../lib/i18n';
 
 interface Props {
+  lang?: Lang;
+  /** Portada: declara las versiones en otros idiomas (hreflang). */
+  alternates?: boolean;
+  /** Solo en la portada en español: manda al visitante a su idioma la primera vez. */
+  autoLang?: boolean;
   title?: string;
   description?: string;
   type?: 'website' | 'article';
@@ -14,13 +21,25 @@ interface Props {
 }
 
 const {
-  title = 'Tarjetas de fidelización digital y sellos en Wallet | SUMA',
-  description = 'Tarjetas de fidelización digital con sellos en Apple y Google Wallet, conectadas a tu caja. Sin apps. Tus clientes vuelven más y tú ganas sus datos. Desde $240.000/mes.',
+  lang = 'es',
+  alternates = false,
+  autoLang = false,
+  title = ui[lang].meta.title,
+  description = ui[lang].meta.description,
   type = 'website',
   jsonLdExtra = [],
   withFaq = true,
 } = Astro.props;
 
+const t = ui[lang];
+
+// Zonas donde queremos aparecer en búsquedas locales.
+const cities = ['Bogotá', 'Chía', 'Cajicá', 'Zipaquirá', 'Cota', 'Sopó', 'Medellín', 'Cali', 'Barranquilla', 'Cartagena', 'Bucaramanga'];
+const areaServed = [
+  { '@type': 'Country', name: 'Colombia' },
+  { '@type': 'AdministrativeArea', name: 'Sabana de Bogotá' },
+  ...cities.map((name) => ({ '@type': 'City', name })),
+];
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 
 const jsonLd = [
@@ -29,7 +48,7 @@ const jsonLd = [
     '@type': 'WebSite',
     name: 'SUMA',
     url: SITE_URL,
-    inLanguage: 'es-CO',
+    inLanguage: t.htmlLang,
   },
   {
     '@context': 'https://schema.org',
@@ -42,9 +61,9 @@ const jsonLd = [
       telephone: `+${WA_NUMBER}`,
       contactType: 'sales',
       areaServed: 'CO',
-      availableLanguage: 'es',
+      availableLanguage: ['es', 'en', 'pt'],
     },
-    areaServed: 'CO',
+    areaServed,
   },
   {
     '@context': 'https://schema.org',
@@ -52,6 +71,7 @@ const jsonLd = [
     name: 'SUMA',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Apple Wallet, Google Wallet',
+    areaServed,
     description,
     offers: {
       '@type': 'Offer',
@@ -64,31 +84,44 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
+    mainEntity: t.faq.items.map((f) => ({
       '@type': 'Question',
       name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
+      acceptedAnswer: { '@type': 'Answer', text: plain(f.a, lang) },
     })),
   },
 ].filter((j: any) => withFaq || j['@type'] !== 'FAQPage');
 ---
 
 <!doctype html>
-<html lang="es-CO">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#1a012e" />
+    <meta name="geo.region" content="CO-DC" />
+    <meta name="geo.placename" content="Bogotá, Colombia" />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="es-CO" href={canonical} />
+    {
+      alternates ? (
+        <>
+          {LANGS.map((l) => (
+            <link rel="alternate" hreflang={ui[l].htmlLang} href={new URL(homePath(l), SITE_URL).href} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={new URL('/', SITE_URL).href} />
+        </>
+      ) : (
+        <link rel="alternate" hreflang={t.htmlLang} href={canonical} />
+      )
+    }
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content={type} />
-    <meta property="og:locale" content="es_CO" />
+    <meta property="og:locale" content={t.ogLocale} />
     <meta property="og:site_name" content="SUMA" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -96,7 +129,7 @@ const jsonLd = [
     <meta property="og:image" content={`${SITE_URL}/og.png`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="SUMA: el cartón de sellos ya murió. Tarjetas de fidelización digital." />
+    <meta property="og:image:alt" content={t.meta.ogAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -104,6 +137,30 @@ const jsonLd = [
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <script is:inline>document.documentElement.classList.add('js');</script>
+    {
+      autoLang && (
+        <script is:inline>
+          {`
+          // Primera visita a la portada en español: lleva al visitante a su idioma.
+          // Buscadores y bots se quedan donde están. Quien eligió idioma a mano se respeta (suma-lang).
+          (function () {
+            try {
+              if (/bot|crawl|spider|slurp|lighthouse|preview|facebookexternalhit/i.test(navigator.userAgent)) return;
+              var saved = localStorage.getItem('suma-lang');
+              var to = saved;
+              if (!to) {
+                var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                var l = String((navigator.languages && navigator.languages[0]) || navigator.language || 'es').toLowerCase();
+                if (tz === 'America/Bogota' || l.indexOf('es') === 0) return;
+                to = l.indexOf('pt') === 0 ? 'pt' : 'en';
+              }
+              if (to === 'en' || to === 'pt') location.replace('/' + to + '/' + location.hash);
+            } catch (e) {}
+          })();
+        `}
+        </script>
+      )
+    }
 
     <!-- Google tag (gtag.js) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-9X1NQT72YJ"></script>
@@ -131,6 +188,9 @@ const jsonLd = [
         { threshold: 0.12 },
       );
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+      // Montos en la moneda del visitante (aproximado; se factura en COP)
+      import('../lib/currency').then((m) => m.applyMoney());
     </script>
   </body>
 </html>

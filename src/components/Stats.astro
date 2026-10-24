@@ -1,11 +1,11 @@
 ---
 // Cifras del producto (solo datos reales de la propuesta).
-const stats = [
-  ['30 s', 'para inscribirse'],
-  ['0', 'apps que descargar'],
-  ['0', 'cambios en tu caja'],
-  ['∞', 'tarjetas, sellos y datos'],
-];
+import { ui, type Lang } from '../i18n/ui';
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const stats = ui[lang].stats;
 ---
 
 <section class="relative mx-auto max-w-7xl px-4 sm:px-6">

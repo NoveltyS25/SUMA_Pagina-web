@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+// Carrusel de clientes oculto mientras haya uno solo. Para volver a mostrarlo: importar LogoMarquee y poner <LogoMarquee /> despues de <Hero />.
+import Stats from './Stats.astro';
+import Showcase from './Showcase.astro';
+import HowItWorks from './HowItWorks.astro';
+import Benefits from './Benefits.astro';
+import Pricing from './Pricing.astro';
+import RoiCalc from './RoiCalc.astro';
+import Faq from './Faq.astro';
+import FinalCta from './FinalCta.astro';
+import Trail from './Trail.astro';
+import Footer from './Footer.astro';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<Layout lang={lang} alternates autoLang={lang === 'es'}>
+  <Header lang={lang} />
+  <main class="relative">
+    <Trail />
+    <Hero lang={lang} />
+    <Stats lang={lang} />
+    <Showcase lang={lang} />
+    <HowItWorks lang={lang} />
+    <Benefits lang={lang} />
+    <Pricing lang={lang} />
+    <RoiCalc lang={lang} />
+    <Faq lang={lang} />
+    <FinalCta lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Layout>

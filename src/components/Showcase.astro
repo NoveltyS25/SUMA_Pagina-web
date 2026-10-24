@@ -1,20 +1,26 @@
 ---
 import Mark from './Mark.astro';
-const verticals = ['Cafeterías', 'Restaurantes', 'Bares', 'Panaderías', 'Tiendas'];
+import { ui, type Lang } from '../i18n/ui';
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].showcase;
+
 ---
 
 <section id="negocios" class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:py-32">
   <Mark kind="arch" class="pointer-events-none absolute -left-24 top-10 hidden w-80 text-white/[0.04] md:block" />
   <div class="grid items-center gap-12 lg:grid-cols-2">
     <div class="reveal">
-      <p class="eyebrow mb-4">Para tu negocio</p>
-      <h2 class="h2">Que vuelvan, <span class="text-volt">una visita más.</span></h2>
+      <p class="eyebrow mb-4">{t.eyebrow}</p>
+      <h2 class="h2">{t.h2[0]}<span class="text-volt">{t.h2[1]}</span></h2>
       <p class="mt-5 max-w-md text-lg text-mute">
-        La tarjeta de sellos digital funciona en cualquier negocio donde el cliente repite.
+        {t.sub}
       </p>
       <ul class="mt-7 flex flex-wrap gap-2">
         {
-          verticals.map((v) => (
+          t.verticals.map((v) => (
             <li class="rounded-full border border-volt/40 bg-volt/10 px-4 py-1.5 text-sm font-semibold">{v}</li>
           ))
         }
@@ -25,7 +31,7 @@ const verticals = ['Cafeterías', 'Restaurantes', 'Bares', 'Panaderías', 'Tiend
       <figure class="relative overflow-hidden rounded-3xl border border-white/10 col-span-2">
         <img
           src="/img/foto-mostrador-cafe-tarjeta-fidelizacion-digital.webp"
-          alt="Dueño de una panadería y clientes en el mostrador, con la tarjeta de fidelización digital en el celular"
+          alt={t.photos[0][1]}
           width="1400"
           height="1400"
           loading="lazy"
@@ -33,13 +39,13 @@ const verticals = ['Cafeterías', 'Restaurantes', 'Bares', 'Panaderías', 'Tiend
         />
         <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
         <figcaption class="absolute bottom-3 left-4 font-display text-2xl font-extrabold uppercase">
-          Un QR y listo
+          {t.photos[0][0]}
         </figcaption>
       </figure>
       <figure class="relative overflow-hidden rounded-3xl border border-white/10">
         <img
           src="/img/foto-panel-clientes-cafeteria-sellos-digitales.webp"
-          alt="Cajero con el panel de SUMA en pantalla mientras una clienta muestra su tarjeta digital en el celular"
+          alt={t.photos[1][1]}
           width="1200"
           height="1200"
           loading="lazy"
@@ -47,13 +53,13 @@ const verticals = ['Cafeterías', 'Restaurantes', 'Bares', 'Panaderías', 'Tiend
         />
         <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
         <figcaption class="absolute bottom-3 left-4 font-display text-xl font-extrabold uppercase">
-          Panel de clientes
+          {t.photos[1][0]}
         </figcaption>
       </figure>
       <figure class="relative overflow-hidden rounded-3xl border border-white/10">
         <img
           src="/img/foto-cliente-tarjeta-sellos-wallet.webp"
-          alt="Clienta sonriendo y mostrando su tarjeta de sellos digital en el Wallet del celular"
+          alt={t.photos[2][1]}
           width="1200"
           height="1200"
           loading="lazy"
@@ -61,7 +67,7 @@ const verticals = ['Cafeterías', 'Restaurantes', 'Bares', 'Panaderías', 'Tiend
         />
         <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
         <figcaption class="absolute bottom-3 left-4 font-display text-xl font-extrabold uppercase">
-          Siempre a la mano
+          {t.photos[2][0]}
         </figcaption>
       </figure>
     </div>

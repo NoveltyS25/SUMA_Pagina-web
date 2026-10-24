@@ -1,31 +1,33 @@
 ---
-import { WA_CONTACT, PROMO_END } from '../lib/site';
-const links = [
-  ['Cómo funciona', '/#como-funciona'],
-  ['Beneficios', '/#beneficios'],
-  ['Precios', '/#precios'],
-  ['Preguntas', '/#faq'],
-  ['Guía', '/como-fidelizar-clientes'],
-];
+import { PROMO_END, waLinks } from '../lib/site';
+import { ui, LANGS, homePath, type Lang } from '../i18n/ui';
+import { homeLink } from '../lib/i18n';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].header;
+const links = [...t.nav.map(([label, hash]) => [label, homeLink(lang, hash)]), [t.guide, '/como-fidelizar-clientes']];
 ---
 
 <div id="promo-bar" data-end={PROMO_END} class="bg-royal text-bone">
   <a
-    href="/#precios"
+    href={homeLink(lang, '#precios')}
     class="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-center text-[13px] font-bold uppercase tracking-wide sm:text-sm"
   >
     <span aria-hidden="true">⚡</span>
-    Promo de octubre: paga 3 meses y recibe 3 gratis
+    {t.promoBar}
     <span aria-hidden="true">→</span>
   </a>
 </div>
 
 <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur-lg">
-  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-    <a href="/" aria-label="SUMA, inicio">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
+    <a href={homePath(lang)} aria-label={t.homeAria}>
       <img src="/logos/suma-blanco.png" alt="SUMA" width="120" height="68" class="h-8 w-auto" />
     </a>
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Principal">
+    <nav class="hidden items-center gap-8 md:flex" aria-label={t.navAria}>
       {
         links.map(([label, href]) => (
           <a href={href} class="text-sm font-medium text-mute transition hover:text-bone">
@@ -34,13 +36,44 @@ const links = [
         ))
       }
     </nav>
-    <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn btn-volt !px-5 !py-2.5">
-      WhatsApp
-    </a>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1 text-xs font-bold uppercase tracking-wider" role="group" aria-label={t.langAria}>
+        {
+          LANGS.map((l) => (
+            <a
+              href={homePath(l)}
+              hreflang={ui[l].htmlLang}
+              data-lang={l}
+              lang={ui[l].htmlLang}
+              aria-current={l === lang ? 'true' : undefined}
+              title={ui[l].langName}
+              class:list={[
+                'rounded-md px-1.5 py-1 transition',
+                l === lang ? 'bg-white/10 text-volt' : 'text-mute hover:text-bone',
+              ]}
+            >
+              {l}
+            </a>
+          ))
+        }
+      </div>
+      <a href={waLinks(lang).contact} target="_blank" rel="noopener" class="btn btn-volt !px-5 !py-2.5">
+        {t.whatsapp}
+      </a>
+    </div>
   </div>
 </header>
 
 <script>
   const bar = document.getElementById('promo-bar');
   if (bar && Date.now() > new Date(bar.dataset.end ?? '').getTime()) bar.remove();
+
+  // Recordar el idioma que eligió la persona
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach((a) =>
+    a.addEventListener('click', () => {
+      try {
+        localStorage.setItem('suma-lang', a.dataset.lang ?? 'es');
+      } catch {}
+    }),
+  );
 </script>
