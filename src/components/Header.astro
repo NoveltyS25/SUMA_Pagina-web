@@ -8,7 +8,7 @@ interface Props {
 }
 const { lang = 'es' } = Astro.props;
 const t = ui[lang].header;
-const links = [...t.nav.map(([label, hash]) => [label, homeLink(lang, hash)]), [t.guide, '/como-fidelizar-clientes']];
+const links = [...t.nav.map(([label, hash]) => [label, homeLink(lang, hash)]), [t.guide, '/como-fidelizar-clientes'], ...(lang === 'es' ? [['Nosotros', '/quienes-somos']] : [])];
 ---
 
 <div id="promo-bar" data-end={PROMO_END} class="bg-royal text-bone">

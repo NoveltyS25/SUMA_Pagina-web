@@ -1,0 +1,217 @@
+---
+import { existsSync } from 'node:fs';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Mark from '../components/Mark.astro';
+import { SITE_URL, WA_CONTACT, WA_DISPLAY, CONTACT_EMAIL } from '../lib/site';
+
+const path = '/quienes-somos';
+const title = 'Quiénes somos: Paula y Santiago, creadores de SUMA';
+const description =
+  'SUMA nació en Zipaquirá, de dos personas que nunca llenaban las tarjetas de sellos de sus cafés favoritos. Conoce a Paula Salazar y Santiago Becerra y nuestra historia.';
+
+// La foto se muestra solo si el archivo existe en public/img.
+const photo = '/img/paula-santiago-fundadores-suma.webp';
+const hasPhoto = existsSync(new URL(`../../public${photo}`, import.meta.url));
+
+const team = [
+  {
+    name: 'Paula Salazar',
+    role: 'Desarrolladora de software y mercadeo',
+    text: 'Desarrolladora de software del Politécnico Internacional, con especialidad en marketing digital. En SUMA lleva lo administrativo, lo financiero y el mercadeo. También diseñó el logo y la identidad de la marca.',
+  },
+  {
+    name: 'Santiago Becerra',
+    role: 'Ingeniero multimedia y desarrollo',
+    text: 'Ingeniero multimedia de la Universidad Militar. En SUMA se encarga de todo el desarrollo: la plataforma, la conexión con las cajas y las tarjetas en Apple Wallet y Google Wallet.',
+  },
+];
+
+const pillars = [
+  ['Un cobro justo', 'Una membresía clara, con todo incluido y sin costos de montaje.'],
+  ['Datos que son tuyos', 'Conocer a tus clientes sin preguntarles nada, con su autorización.'],
+  ['Tecnología sencilla', 'Que tu equipo cobre como siempre y el cliente no tenga que descargar nada.'],
+];
+
+const jsonLdExtra = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: title,
+    description,
+    url: `${SITE_URL}${path}`,
+    inLanguage: 'es-CO',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'SUMA',
+      url: SITE_URL,
+      email: CONTACT_EMAIL,
+      address: { '@type': 'PostalAddress', addressLocality: 'Zipaquirá', addressCountry: 'CO' },
+      founder: team.map((p) => ({ '@type': 'Person', name: p.name, jobTitle: p.role })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Quiénes somos', item: `${SITE_URL}${path}` },
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description} jsonLdExtra={jsonLdExtra} withFaq={false}>
+  <Header />
+  <main class="relative">
+    <!-- Portada -->
+    <section id="portada" class="relative overflow-hidden">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-40 top-0 h-[520px] w-[520px] rounded-full bg-royal/50 blur-[140px]"></div>
+      <div class:list={['relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-14 sm:px-6 lg:pb-24 lg:pt-20', hasPhoto && 'lg:grid-cols-2']}>
+        <div>
+          <p class="eyebrow mb-4">Quiénes somos</p>
+          <h1 class="text-[3.6rem] sm:text-[5.6rem] lg:text-[6.4rem]">
+            Somos Paula y Santiago, <span class="text-volt">creadores de SUMA</span>
+          </h1>
+          <p class="mt-7 max-w-xl text-lg leading-relaxed text-mute sm:text-xl">
+            Nacimos en Bogotá y construimos SUMA desde Zipaquirá. La idea salió de algo que nos pasaba a
+            nosotros: siempre volvíamos a los lugares que nos gustaban, pero nunca teníamos la tarjeta de sellos.
+          </p>
+        </div>
+        {
+          hasPhoto && (
+            <figure class="relative overflow-hidden rounded-3xl border border-white/10">
+              <img
+                src={photo}
+                alt="Paula Salazar y Santiago Becerra, creadores de SUMA"
+                width="1200"
+                height="1200"
+                fetchpriority="high"
+                class="aspect-[4/3] w-full object-cover"
+              />
+            </figure>
+          )
+        }
+      </div>
+    </section>
+
+    <!-- Historia -->
+    <section id="historia" class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <div class="reveal">
+        <p class="eyebrow mb-4">Cómo empezó</p>
+        <h2 class="h2">Una tarjeta que nunca llenábamos</h2>
+        <div class="mt-8 space-y-5 text-lg leading-relaxed text-bone/80">
+          <p>
+            Nos encantan los cafés y los lugares con personalidad. Y nos pasaba siempre lo mismo: volvíamos, pero
+            la tarjeta de sellos se quedaba en otra chaqueta, y nunca la completábamos. Pensamos que si nos pasaba a
+            nosotros, les pasaba a todos.
+          </p>
+          <p>
+            Hace cerca de un año empezamos a buscar una idea de desarrollo que nos encantara y que resolviera un
+            problema de verdad. Pasamos por muchas ideas, y siempre nos hacíamos la misma pregunta: ¿esto de
+            verdad soluciona un problema, o solo estamos creando una necesidad?
+          </p>
+          <p>
+            Con SUMA sentimos que eran las dos cosas. Para el cliente, una tarjeta que ya no se pierde. Para el
+            negocio, algo que no consigue de otra forma: saber qué tan animados están sus clientes para volver y
+            comprar. Ese dato vale oro para cualquier empresa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cupá -->
+    <section id="cupa" class="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
+      <div class="reveal panel panel-glow grid items-center gap-10 p-8 sm:p-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <img
+          src="/img/cupa-qr-impreso-tarjeta-fidelizacion-digital.webp"
+          alt="Atril de Cupá Pastry & Coffee con el QR de la tarjeta de sellos digital"
+          width="550"
+          height="860"
+          loading="lazy"
+          class="mx-auto w-[210px] -rotate-3 drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)] sm:w-[240px]"
+        />
+        <div>
+          <p class="eyebrow mb-3">Nuestro primer cliente</p>
+          <h2 class="text-5xl sm:text-6xl">
+            <a href="https://www.instagram.com/reel/Dex1CfNu0pJ/" target="_blank" rel="noopener" class="hover:text-volt">Cupá Pastry &amp; Coffee</a>
+          </h2>
+          <div class="mt-5 space-y-4 text-lg leading-relaxed text-mute">
+            <p>
+              Llegamos a Cupá porque nos encanta su café. Nos hicimos amigos de sus dueños y un día nos contaron que
+              iban a imprimir las típicas tarjetas de cartón. Les dijimos que no: es perder plata, casi nadie las llena
+              y el negocio no se queda con ningún dato.
+            </p>
+            <p>
+              Les planteamos otra cosa y nos dijeron: tráiganos una propuesta. En cerca de un mes lo montamos todo para
+              ellos. En ese tiempo le pusimos nombre a la plataforma, Paula diseñó el logo, elegimos los colores y
+              terminamos todo lo que nos faltaba para tener un cliente real. Ahí nació SUMA.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
+      <div class="reveal max-w-3xl">
+        <p class="eyebrow mb-4">El equipo</p>
+        <h2 class="h2">Quién hace SUMA</h2>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-2">
+        {
+          team.map((p) => (
+            <article class="reveal panel p-7">
+              <h3 class="text-4xl">{p.name}</h3>
+              <p class="mt-1 font-display text-xl font-semibold uppercase tracking-wider text-volt">{p.role}</p>
+              <p class="mt-4 text-[15px] leading-relaxed text-mute">{p.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Hacia dónde vamos -->
+    <section id="futuro" class="relative overflow-hidden border-t border-white/10 bg-black/20">
+      <Mark kind="arch" class="pointer-events-none absolute -right-24 top-10 w-[460px] text-forest/30" />
+      <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6">
+        <div class="reveal max-w-3xl">
+          <p class="eyebrow mb-4">Hacia dónde vamos</p>
+          <h2 class="h2">La fidelización de todo un país</h2>
+          <p class="mt-5 text-lg leading-relaxed text-mute">
+            Queremos llevar la fidelización a todo Colombia y, después, al mundo. Queremos que SUMA sea la tarjeta con
+            la mejor tecnología y la más popular, no solo por un cobro justo, sino porque cambia la forma en que el
+            dueño ve su negocio.
+          </p>
+        </div>
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          {
+            pillars.map(([t, d]) => (
+              <article class="reveal panel p-6">
+                <h3 class="text-3xl">{t}</h3>
+                <p class="mt-2 text-[15px] leading-relaxed text-mute">{d}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Cierre -->
+    <section id="cierre" class="px-4 py-20 sm:px-6">
+      <div
+        class="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-royal px-6 py-16 text-center text-bone sm:px-12 sm:py-24"
+        style="background-image:radial-gradient(500px 400px at 0% 0%,rgba(255,255,255,.22),transparent 60%),linear-gradient(160deg,#6002ab,#370063)"
+      >
+        <h2 class="mx-auto max-w-3xl text-6xl sm:text-8xl">Hablemos de tu negocio</h2>
+        <p class="mx-auto mt-6 max-w-xl text-lg font-medium">Escríbenos y te contamos cómo SUMA puede hacer que tus clientes vuelvan.</p>
+        <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn bg-ink text-volt hover:-translate-y-0.5">WhatsApp {WA_DISPLAY}</a>
+          <a href={`mailto:${CONTACT_EMAIL}`} class="btn border border-white/30 text-bone hover:bg-ink hover:text-volt">{CONTACT_EMAIL}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

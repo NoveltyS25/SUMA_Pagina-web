@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_URL, WA_DEMO, PRICE_MONTH } from '../lib/site';
+
+const path = '/tarjeta-de-sellos-digital-vs-carton';
+const title = 'Tarjeta de sellos digital vs. cartón: ¿cuál conviene? | SUMA';
+const description =
+  'Comparamos la tarjeta de sellos digital con la de cartón: costos, datos de clientes, avisos y trampas. Cuándo conviene cada una y cómo pasar a lo digital.';
+const published = '2026-10-27';
+const price = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 })
+  .format(PRICE_MONTH)
+  .replace(/^\$\s/, '$');
+
+const rows = [
+  ['Dónde vive', 'En la billetera o el bolsillo', 'En el Wallet del celular'],
+  ['Se pierde o se olvida', 'Con mucha frecuencia', 'Casi nunca: siempre está en el celular'],
+  ['Cómo se suma el sello', 'A mano, con un sello o una firma', 'Automático desde la caja'],
+  ['Datos del cliente', 'Ninguno', 'Quién vuelve, cuánto gasta y cuándo viene'],
+  ['Avisos de promos', 'No hay cómo', 'Notificaciones al celular, con autorización'],
+  ['Errores y trampas', 'Sellos de más o tarjetas copiadas', 'Cada sello queda registrado'],
+  ['Cambiar el premio', 'Hay que reimprimir', 'Se ajusta sin imprimir de nuevo'],
+  ['Costo', 'Impresión, y reimpresión cada vez que se acaban', `Membresía de ${price} al mes por sede en SUMA`],
+];
+
+const jsonLdExtra = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Tarjeta de sellos digital vs. cartón: ¿cuál conviene a tu negocio?',
+    description,
+    datePublished: published,
+    dateModified: published,
+    inLanguage: 'es-CO',
+    mainEntityOfPage: `${SITE_URL}${path}`,
+    image: `${SITE_URL}/og.png`,
+    author: { '@type': 'Organization', name: 'SUMA', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'SUMA', url: SITE_URL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Cómo fidelizar clientes', item: `${SITE_URL}/como-fidelizar-clientes` },
+      { '@type': 'ListItem', position: 3, name: 'Tarjeta de sellos digital vs. cartón', item: `${SITE_URL}${path}` },
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description} type="article" jsonLdExtra={jsonLdExtra} withFaq={false}>
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:py-24">
+    <nav aria-label="Ruta" class="text-sm text-mute">
+      <a class="hover:text-bone" href="/">Inicio</a> <span aria-hidden="true">/</span>
+      <a class="hover:text-bone" href="/como-fidelizar-clientes">Cómo fidelizar clientes</a> <span aria-hidden="true">/</span>
+      Digital vs. cartón
+    </nav>
+    <h1 class="mt-6 text-5xl sm:text-7xl">Tarjeta de sellos digital vs. cartón</h1>
+    <p class="mt-5 text-sm text-mute">Actualizado el 27 de octubre de 2026</p>
+
+    <p class="mt-8 text-xl leading-relaxed">
+      La <b>tarjeta de sellos digital</b> vive en el celular del cliente (Apple Wallet o Google Wallet), suma sellos
+      desde la caja y le da datos al negocio. El <b>cartón</b> es de papel: se imprime, se sella a mano y se pierde
+      fácil. Si quieres que tus clientes vuelvan y además conocerlos, la digital gana en casi todo. El cartón solo se
+      defiende por ser lo más simple de empezar.
+    </p>
+
+    <img
+      src="/img/foto-cliente-tarjeta-sellos-wallet.webp"
+      alt="Clienta mostrando su tarjeta de sellos digital en el Wallet del celular"
+      width="1200"
+      height="1200"
+      loading="lazy"
+      class="mt-10 aspect-[16/10] w-full rounded-3xl border border-white/10 object-cover object-[50%_35%]"
+    />
+
+    <h2 class="mt-14 text-3xl normal-case leading-tight">La comparación, punto por punto</h2>
+    <div class="mt-5 overflow-hidden rounded-2xl border border-white/10">
+      <table class="w-full text-left text-sm sm:text-base">
+        <thead class="bg-white/[0.04] font-display text-lg uppercase tracking-wide sm:text-xl">
+          <tr>
+            <th scope="col" class="px-4 py-3"></th>
+            <th scope="col" class="px-4 py-3 text-mute">Cartón</th>
+            <th scope="col" class="px-4 py-3 text-volt">Digital</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map(([a, b, c]) => (
+              <tr class="border-t border-white/10 align-top">
+                <th scope="row" class="px-4 py-3 font-semibold">{a}</th>
+                <td class="px-4 py-3 text-mute">{b}</td>
+                <td class="bg-volt/[0.06] px-4 py-3">{c}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div
+      class="mt-10 [&_a]:text-volt [&_a]:underline [&_h2]:mt-12 [&_h2]:text-3xl [&_h2]:normal-case [&_h2]:leading-tight [&_li]:mt-2 [&_li]:text-bone/80 [&_ol]:mt-3 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mt-3 [&_p]:leading-relaxed [&_p]:text-bone/80 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-6"
+    >
+      <h2>¿Cuándo sí conviene el cartón?</h2>
+      <ul>
+        <li>Si tu negocio es muy pequeño y no tienes caja ni sistema de ventas.</li>
+        <li>Si es una campaña corta, de pocas semanas, y no te interesa guardar datos.</li>
+        <li>Si tus clientes no usan smartphone, algo poco común hoy.</li>
+      </ul>
+
+      <h2>¿Cuándo conviene la digital?</h2>
+      <ul>
+        <li>Si quieres saber quién vuelve, cuánto gasta y quién dejó de venir.</li>
+        <li>Si quieres avisar de promociones o eventos sin depender solo de redes sociales.</li>
+        <li>Si ya tienes caja o POS y no quieres que tu equipo haga trabajo extra.</li>
+        <li>Si tienes varias sedes o piensas abrirlas.</li>
+      </ul>
+
+      <h2>Cómo pasar del cartón a lo digital</h2>
+      <ol>
+        <li>Decide el premio y cuántos sellos hacen falta para ganarlo.</li>
+        <li>Diseña la tarjeta con tu logo y los colores de tu marca.</li>
+        <li>Pon el QR en el mostrador o en las mesas, para que los clientes se inscriban en unos 30 segundos.</li>
+        <li>Invita a tus clientes frecuentes a pasarse a la digital y retira el cartón.</li>
+      </ol>
+      <p>
+        Si quieres ver cómo funciona en tu tipo de negocio, mira la página para
+        <a href="/tarjeta-de-fidelizacion-para-cafeterias">cafeterías</a>,
+        <a href="/tarjeta-de-fidelizacion-para-restaurantes">restaurantes</a>,
+        <a href="/tarjeta-de-fidelizacion-para-bares">bares</a> o
+        <a href="/tarjeta-de-fidelizacion-para-panaderias">panaderías</a>. Y si quieres más ideas, lee la guía de
+        <a href="/como-fidelizar-clientes">cómo fidelizar clientes</a>.
+      </p>
+    </div>
+
+    <div class="mt-14 rounded-3xl border border-volt/30 bg-volt/10 p-7">
+      <p class="font-display text-3xl font-extrabold uppercase leading-tight">¿Pasamos tu negocio a digital?</p>
+      <p class="mt-2 text-mute">Te mostramos SUMA funcionando, sin compromiso.</p>
+      <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+        <a href={WA_DEMO} target="_blank" rel="noopener" class="btn btn-volt !text-bone !no-underline">Agendar una demo</a>
+        <a href="/#precios" class="btn btn-ghost !no-underline">Ver precios</a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

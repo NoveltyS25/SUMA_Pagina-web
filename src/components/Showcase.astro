@@ -1,6 +1,7 @@
 ---
 import Mark from './Mark.astro';
 import { ui, type Lang } from '../i18n/ui';
+import { niches } from '../lib/niches';
 interface Props {
   lang?: Lang;
 }
@@ -22,8 +23,8 @@ const t = ui[lang].showcase;
         {
           t.verticals.map((v, i) => (
             <li class="rounded-full border border-volt/40 bg-volt/10 px-4 py-1.5 text-sm font-semibold">
-              {lang === 'es' && i === 0 ? (
-                <a href="/tarjeta-de-fidelizacion-para-cafeterias" class="hover:text-volt">{v} →</a>
+              {lang === 'es' && niches[i] ? (
+                <a href={niches[i].path} class="hover:text-volt">{v} →</a>
               ) : (
                 v
               )}
