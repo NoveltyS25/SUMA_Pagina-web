@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { WA_CONTACT, WA_DISPLAY } from '../lib/site';
+import { WA_CONTACT, WA_DISPLAY, CONTACT_EMAIL } from '../lib/site';
 
-const updated = '19 de octubre de 2026';
+const updated = '27 de octubre de 2026';
 ---
 
 <Layout
@@ -30,7 +30,8 @@ const updated = '19 de octubre de 2026';
       <h2>1. Responsable del tratamiento</h2>
       <p>
         <b>SUMA</b>, con operación en Colombia. Canal de contacto para temas de datos personales:
-        WhatsApp <a href={WA_CONTACT} target="_blank" rel="noopener">{WA_DISPLAY}</a>.
+        WhatsApp <a href={WA_CONTACT} target="_blank" rel="noopener">{WA_DISPLAY}</a> o correo
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
       </p>
 
       <h2>2. Roles: cuándo somos responsables y cuándo encargados</h2>
@@ -58,8 +59,17 @@ const updated = '19 de octubre de 2026';
           definir su categoría.
         </li>
         <li>
-          <b>Datos técnicos:</b> a la fecha este sitio no usa cookies de publicidad. Si en el
-          futuro incorporamos herramientas de analítica, lo informaremos aquí.
+          <b>Datos técnicos y cookies:</b> este sitio usa Google Analytics (Google) y el Píxel de
+          Meta (Meta Platforms) para medir las visitas y los clics a WhatsApp, entender cómo se
+          usa el sitio y medir y mejorar nuestra publicidad en Facebook e Instagram. Estas
+          herramientas instalan cookies o identificadores similares en tu navegador y reciben
+          datos como tu dirección IP, tu dispositivo y navegador, las páginas que visitas, el
+          sitio o anuncio desde el que llegaste y si hiciste clic para escribirnos por WhatsApp.
+          Desde este sitio no les enviamos tu nombre, cédula, celular ni correo. Estos proveedores
+          pueden tratar la información en servidores fuera de Colombia, según sus propias
+          políticas. Puedes bloquear o borrar las cookies en la configuración de tu navegador,
+          usar el complemento de inhabilitación de Google Analytics o gestionar los anuncios que
+          ves desde las preferencias de anuncios de tu cuenta de Facebook o Instagram.
         </li>
       </ul>
       <p>No solicitamos datos sensibles.</p>
@@ -79,6 +89,10 @@ const updated = '19 de octubre de 2026';
           No se infieren datos sensibles, personalidad ni estado de ánimo, y no se toman decisiones
           automáticas que te perjudiquen. Puedes pedir que dejemos de analizarte en cualquier
           momento (ver sección 7); esto no afecta tus sellos ni tu tarjeta.
+        </li>
+        <li>
+          Medir el uso del sitio y la efectividad de nuestra publicidad con analítica y píxeles de
+          terceros (sección 3), y mostrar anuncios a quienes visitaron el sitio.
         </li>
         <li>Brindar soporte, mejorar el servicio y cumplir obligaciones legales.</li>
       </ul>
@@ -107,8 +121,8 @@ const updated = '19 de octubre de 2026';
       <h2>7. Cómo ejercer tus derechos</h2>
       <p>
         Escríbenos por WhatsApp al <a href={WA_CONTACT} target="_blank" rel="noopener">{WA_DISPLAY}</a>
-        indicando tu nombre, número de documento, el negocio al que se refiere (si aplica) y lo que
-        solicitas.
+        o al correo <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, indicando tu nombre,
+        número de documento, el negocio al que se refiere (si aplica) y lo que solicitas.
       </p>
       <ul>
         <li>
