@@ -3,7 +3,7 @@ import '@fontsource/barlow-condensed/600.css';
 import '@fontsource/barlow-condensed/800.css';
 import '@fontsource-variable/inter';
 import '../styles/global.css';
-import { SITE_URL, WA_NUMBER, PRICE_MONTH } from '../lib/site';
+import { SITE_URL, WA_NUMBER, PRICE_MONTH, CONTACT_EMAIL } from '../lib/site';
 import { ui, LANGS, homePath, type Lang } from '../i18n/ui';
 import { plain } from '../lib/i18n';
 
@@ -59,6 +59,7 @@ const jsonLd = [
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: `+${WA_NUMBER}`,
+      email: CONTACT_EMAIL,
       contactType: 'sales',
       areaServed: 'CO',
       availableLanguage: ['es', 'en', 'pt'],
@@ -80,7 +81,6 @@ const jsonLd = [
       description: 'Membresía mensual por sede',
     },
   },
-  ...jsonLdExtra,
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -90,7 +90,9 @@ const jsonLd = [
       acceptedAnswer: { '@type': 'Answer', text: plain(f.a, lang) },
     })),
   },
-].filter((j: any) => withFaq || j['@type'] !== 'FAQPage');
+]
+  .filter((j: any) => withFaq || j['@type'] !== 'FAQPage')
+  .concat(jsonLdExtra as any[]);
 ---
 
 <!doctype html>
@@ -191,6 +193,9 @@ const jsonLd = [
 
       // Montos en la moneda del visitante (aproximado; se factura en COP)
       import('../lib/currency').then((m) => m.applyMoney());
+
+      // Conversiones: clics a WhatsApp y origen de la campaña
+      import('../lib/tracking').then((m) => m.initTracking());
     </script>
   </body>
 </html>

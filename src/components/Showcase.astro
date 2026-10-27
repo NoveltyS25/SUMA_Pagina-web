@@ -20,8 +20,14 @@ const t = ui[lang].showcase;
       </p>
       <ul class="mt-7 flex flex-wrap gap-2">
         {
-          t.verticals.map((v) => (
-            <li class="rounded-full border border-volt/40 bg-volt/10 px-4 py-1.5 text-sm font-semibold">{v}</li>
+          t.verticals.map((v, i) => (
+            <li class="rounded-full border border-volt/40 bg-volt/10 px-4 py-1.5 text-sm font-semibold">
+              {lang === 'es' && i === 0 ? (
+                <a href="/tarjeta-de-fidelizacion-para-cafeterias" class="hover:text-volt">{v} →</a>
+              ) : (
+                v
+              )}
+            </li>
           ))
         }
       </ul>

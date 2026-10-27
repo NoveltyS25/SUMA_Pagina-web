@@ -1,5 +1,5 @@
 ---
-import { waLinks, WA_DISPLAY } from '../lib/site';
+import { waLinks, WA_DISPLAY, CONTACT_EMAIL } from '../lib/site';
 import { ui, type Lang } from '../i18n/ui';
 import { homeLink } from '../lib/i18n';
 import Mark from './Mark.astro';
@@ -22,11 +22,13 @@ const WA_CONTACT = waLinks(lang).contact;
     <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-mute" aria-label={t.navAria}>
       {t.nav.map(([label, hash]) => <a class="hover:text-bone" href={homeLink(lang, hash)}>{label}</a>)}
       <a class="hover:text-bone" href="/como-fidelizar-clientes">{t.guide}</a>
+      {lang === 'es' && <a class="hover:text-bone" href="/tarjeta-de-fidelizacion-para-cafeterias">Para cafeterías</a>}
       <a class="hover:text-bone" href="/politica-de-datos">{t.privacy}</a>
       <a class="hover:text-bone" href="/terminos-y-condiciones">{t.terms}</a>
       <a class="text-volt hover:underline" href={WA_CONTACT} target="_blank" rel="noopener">
         {t.whatsapp} {WA_DISPLAY}
       </a>
+      <a class="text-volt hover:underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
     </nav>
   </div>
   <p class="mx-auto max-w-4xl border-t border-white/5 px-4 pt-5 text-center text-xs leading-relaxed text-mute/80">{t.coverage}</p>

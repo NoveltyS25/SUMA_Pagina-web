@@ -3,6 +3,7 @@ import { ui, type Lang } from '../i18n/ui';
 export const SITE_URL = 'https://sumafidelidad.com';
 export const WA_NUMBER = '573193299348';
 export const WA_DISPLAY = '+57 319 329 9348';
+export const CONTACT_EMAIL = 'hola@sumafidelidad.com';
 
 export const wa = (msg: string) =>
   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
