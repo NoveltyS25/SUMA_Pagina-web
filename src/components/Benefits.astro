@@ -23,12 +23,22 @@ const rows = t.rows;
 
     <div class="mt-14 grid gap-4 lg:grid-cols-6">
       <article class="reveal relative overflow-hidden rounded-3xl bg-royal p-8 text-bone lg:col-span-3 lg:row-span-2" style="background-image:radial-gradient(500px 400px at 0% 0%,rgba(255,255,255,.22),transparent 60%),linear-gradient(160deg,#6002ab,#370063)">
+        <img
+          src="/img/foto-panel-clientes-cafeteria-sellos-digitales.webp"
+          alt={t.big.imgAlt}
+          width="900"
+          height="900"
+          loading="lazy"
+          class="absolute inset-0 h-full w-full object-cover opacity-25 [mask-image:linear-gradient(to_top,black,transparent_65%)]"
+        />
         <Mark kind="arch" class="pointer-events-none absolute -bottom-6 -right-10 w-64 text-white/10" />
-        <p class="font-display text-xl font-bold uppercase tracking-wider opacity-70">{t.big.kicker}</p>
-        <h3 class="mt-4 text-5xl sm:text-6xl">{t.big.title}</h3>
-        <p class="mt-6 max-w-md text-[15px] font-medium leading-relaxed">
-          {t.big.text}
-        </p>
+        <div class="relative">
+          <p class="font-display text-xl font-bold uppercase tracking-wider opacity-70">{t.big.kicker}</p>
+          <h3 class="mt-4 text-5xl sm:text-6xl">{t.big.title}</h3>
+          <p class="mt-6 max-w-md text-[15px] font-medium leading-relaxed">
+            {t.big.text}
+          </p>
+        </div>
       </article>
 
       <article class="reveal panel panel-glow p-7 lg:col-span-3">
@@ -80,6 +90,10 @@ const rows = t.rows;
           </div>
         ))
       }
+    </div>
+
+    <div class="reveal mt-10 text-center">
+      <a href="#precios" class="btn btn-ghost">{t.cta} →</a>
     </div>
   </div>
 </section>

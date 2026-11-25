@@ -17,6 +17,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
     background: var(--color-ink);
     color: var(--color-bone);
     font-family: var(--font-sans);

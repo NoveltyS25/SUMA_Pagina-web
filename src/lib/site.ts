@@ -12,15 +12,15 @@ export const waLinks = (lang: Lang) => ({
   contact: wa(ui[lang].wa.contact),
   demo: wa(ui[lang].wa.demo),
   promo: wa(ui[lang].wa.promo),
+  plan1: wa(ui[lang].wa.plan1),
+  plan6: wa(ui[lang].wa.plan6),
+  plan12: wa(ui[lang].wa.plan12),
 });
 
 // Versiones en español, para las páginas que no se traducen (guía y legales).
 export const WA_CONTACT = waLinks('es').contact;
 export const WA_DEMO = waLinks('es').demo;
 export const WA_PROMO = waLinks('es').promo;
-
-// La promo se oculta sola pasada esta fecha (hora Colombia).
-export const PROMO_END = '2026-10-31T23:59:59-05:00';
 
 export const PRICE_MONTH = 240000;
 export const PRICE_PROMO_MONTH = 120000;

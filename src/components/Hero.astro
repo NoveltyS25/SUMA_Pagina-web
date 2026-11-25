@@ -8,7 +8,7 @@ interface Props {
 }
 const { lang = 'es' } = Astro.props;
 const t = ui[lang].hero;
-const { contact: WA_CONTACT, demo: WA_DEMO } = waLinks(lang);
+const { contact: WA_CONTACT } = waLinks(lang);
 const stamps = Array.from({ length: 10 }, (_, i) => i < 6);
 
 // Código QR decorativo (no escaneable): 3 marcadores de esquina + celdas pseudoaleatorias fijas.
@@ -55,21 +55,21 @@ for (let y = 0; y < 21; y++)
   </div>
 
   <div
-    class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 pb-20 pt-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28 lg:pt-20"
+    class="relative mx-auto grid max-w-7xl items-center gap-8 px-4 pb-12 pt-8 sm:px-6 sm:pb-20 sm:pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:pb-28 lg:pt-20"
   >
     <div>
-      <p class="eyebrow mb-5">{t.eyebrow}</p>
-      <h1 class="text-[3.6rem] sm:text-[5.2rem] lg:text-[6.4rem]">
+      <p class="eyebrow mb-4 sm:mb-5">{t.eyebrow}</p>
+      <h1 class="text-[2.6rem] leading-[0.98] sm:text-[5.2rem] sm:leading-[0.92] lg:text-[6.4rem]">
         {t.h1[0]}<span class="text-volt">{t.h1[1]}</span>{t.h1[2]}
       </h1>
-      <p class="mt-7 max-w-xl text-lg leading-relaxed text-mute sm:text-xl">
+      <p class="mt-5 max-w-xl text-base leading-relaxed text-mute sm:mt-7 sm:text-lg lg:text-xl">
         {t.sub}
       </p>
-      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-        <a href={WA_DEMO} target="_blank" rel="noopener" class="btn btn-volt">{t.demo}</a>
+      <div class="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row">
+        <a href="#precios" class="btn btn-volt">{t.demo}</a>
         <a href={WA_CONTACT} target="_blank" rel="noopener" class="btn btn-ghost">{t.wa}</a>
       </div>
-      <ul class="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-mute">
+      <ul class="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm text-mute sm:mt-10">
         {
           t.bullets.map((t) => (
             <li class="flex items-center gap-2">
