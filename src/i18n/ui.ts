@@ -11,10 +11,10 @@ const es = {
   locale: 'es-CO',
   langName: 'Español',
   meta: {
-    title: 'Tarjetas de fidelización digital en Bogotá y Colombia | SUMA',
+    title: 'Tarjeta de sellos digital que aprende de tus clientes | SUMA',
     description:
-      'Tarjetas de fidelización digital con sellos en Apple y Google Wallet, más un panel de predicción de clientes para negocios en Bogotá, la Sabana y toda Colombia. Sabe quién no va a volver, antes de perderlo. Desde $240.000/mes.',
-    ogAlt: 'SUMA: predicción de clientes y tarjetas de fidelización digital.',
+      'Tarjeta de sellos en Apple y Google Wallet conectada a tu caja, con un panel que aprende de tus ventas y te muestra quién se aleja. Desde $240.000/mes.',
+    ogAlt: 'SUMA: tarjeta de fidelización digital en Wallet y panel de datos para tu negocio.',
   },
   wa: {
     contact: 'Hola, quiero saber más sobre SUMA para mi negocio.',
@@ -39,12 +39,12 @@ const es = {
     langAria: 'Idioma',
   },
   hero: {
-    eyebrow: 'Antes de perderlo, entérate',
-    h1: ['No pierdas un cliente ', 'sin saberlo', '.'],
-    sub: 'SUMA es el software de predicción de comportamiento de clientes que hoy solo usan las grandes agencias, a la medida de tu negocio. Sabe quién está por dejar de volver, entiende por qué te compran de verdad y detecta la duda que casi los hace decir que no. Todo sin preguntarle nada a tu cliente.',
+    eyebrow: 'Fidelización digital con datos',
+    h1: ['La tarjeta de fidelización que ', 'aprende de tus clientes', '.'],
+    sub: 'SUMA pone la tarjeta de sellos en el Apple Wallet y el Google Wallet de tu cliente, se conecta a tu caja y convierte cada compra en información útil: quién vuelve, quién se está alejando, qué horas están flojas y cuánto vas a vender. Sin apps y sin hacerle preguntas a nadie.',
     demo: 'Ver precios y agendar una demo',
     wa: 'Escribir por WhatsApp',
-    bullets: ['Detecta quién no va a volver, antes de que se vaya', 'Panel hecho para los objetivos de tu negocio', 'Cero preguntas a tus clientes'],
+    bullets: ['Tarjeta en Apple y Google Wallet, sin app', 'El sello llega solo desde tu caja', 'Un panel que te muestra quién se aleja'],
     logo: ['Tu', 'logo'],
     stamps: 'SELLOS',
     stampsOf: '6 DE 10',
@@ -115,8 +115,8 @@ const es = {
     steps: [
       ['Escanea', 'Escanea el QR del local.', 'Cliente escaneando con su celular el QR de registro de la tarjeta de fidelización digital en una mesa de cafetería'],
       ['Regístrate', '30 segundos y la guarda en su Wallet.', 'Clienta llenando en su celular el formulario de registro de la tarjeta de fidelización digital'],
-      ['Cobra igual', 'Como siempre. Pides la cédula.', 'Dueño de un negocio cobrando en su caja registradora a una clienta, sin cambiar su forma de cobrar'],
-      ['Suma datos', 'Llega sola a su celular y alimenta tu panel.', 'Clienta mostrando su tarjeta de sellos digital en el Wallet del celular'],
+      ['Cobra igual', 'Cobras como siempre y asocias la venta a su celular.', 'Dueño de un negocio cobrando en su caja registradora a una clienta, sin cambiar su forma de cobrar'],
+      ['Suma datos', 'El sello llega solo a su celular y alimenta tu panel.', 'Clienta mostrando su tarjeta de sellos digital en el Wallet del celular'],
     ],
     cta: 'Ver precios y planes',
   },
@@ -124,30 +124,30 @@ const es = {
     eyebrow: 'Más que una tarjeta',
     h2: ['La tarjeta la ve tu cliente. ', 'El análisis es tuyo.'],
     big: {
-      kicker: 'Tu ventaja competitiva',
-      title: 'La visión que solo tenían las grandes agencias, ahora es tuya.',
-      text: 'Con tu propia small data sabes cómo se comporta cada cliente, lo analizas y lo predices, sin pedirle ni preguntarle nada.',
-      imgAlt: 'Dueño de un negocio revisando el panel de predicción de clientes de SUMA',
+      kicker: 'Tu ventaja',
+      title: 'Tus propios datos, trabajando para tu negocio.',
+      text: 'Cada compra queda guardada en tu historial. Con él, SUMA aprende el ritmo de tu clientela: cuánto tardan en volver, qué días y horas vendes más, y cómo influyen los festivos, la quincena o el clima. Sin encuestas y sin preguntarle nada a nadie.',
+      imgAlt: 'Dueño de un negocio revisando el panel de datos de clientes y ventas de SUMA',
     },
-    data: { title: 'Riesgo de abandono, a tiempo', text: 'Detectamos cuándo un cliente está por dejar de volver, antes de que lo pierdas, para que puedas reaccionar.' },
-    pos: { title: 'Un panel hecho para tu objetivo', text: '¿Quieres abrir otra sede? Revisamos tus ventas y el comportamiento de tus clientes y te decimos cuándo estás listo. ¿Quieres un evento? Predecimos la mejor fecha y hora según tu clientela.' },
+    data: { title: 'Quién se aleja, a tiempo', text: 'Cuando un cliente tarda más de lo normal en volver, lo ves en tu panel y su tarjeta le manda un aviso de “te extrañamos”. Sin llamadas ni mensajes masivos.' },
+    pos: { title: 'Un panel que responde preguntas', text: '¿Cuánto voy a vender esta semana? ¿Qué horas están flojas? ¿Quién está por dejar de volver? Tu panel responde en lenguaje simple, con rangos y mostrando qué tanto ha acertado.' },
     channel: {
-      title: 'Entiende a tu cliente sin preguntarle nada',
-      text: 'Analizamos el Jobs To Be Done de tu negocio (qué espera tu cliente de verdad) y la disonancia cognitiva de tu público (qué lo hace dudar antes de comprar), solo con la data que ya generas.',
-      tag: 'Jobs To Be Done',
+      title: 'Decisiones con datos, no a ciegas',
+      text: 'Un sello doble de un toque en las horas flojas, la mejor fecha para un evento o saber si ya estás listo para abrir otra sede. SUMA te recomienda con tu propia clientela y te avisa cuando aún le faltan datos para hacerlo.',
+      tag: 'Panel del dueño',
     },
     cmp: { bad: 'Antes', good: 'Con SUMA' },
     rows: [
-      ['Solo las grandes marcas podían perfilar a cada cliente', 'Tú también sabes cómo se comporta cada cliente'],
-      ['Te enteras que perdiste un cliente cuando ya no vuelve', 'Te avisamos antes de que se vaya'],
-      ['Decides a ciegas cuándo abrir sede o hacer un evento', 'Decides con datos reales de tu propia clientela'],
+      ['Entiendes a tu clientela por intuición', 'Tus datos de compra te muestran quién vuelve y quién se aleja'],
+      ['Te enteras de que perdiste a un cliente cuando ya no vuelve', 'Ves a tiempo quién tarda más de lo normal en volver'],
+      ['Decides a ciegas cuándo hacer un evento o abrir otra sede', 'Decides con el historial de tu propio negocio'],
     ],
     cta: 'Ver precios y planes',
   },
   pricing: {
     eyebrow: 'Precios',
     h2: ['Entre más te comprometes, ', 'menos pagas.'],
-    sub: 'Los tres planes incluyen tarjeta de sellos o identificadora (o ambas), panel de predicción y alertas de riesgo de abandono.',
+    sub: 'Todos los planes incluyen la tarjeta (de sellos, identificadora o ambas), el panel del dueño, la conexión a tu caja y soporte por WhatsApp.',
     insteadOf: 'en vez de {240000}/mes',
     plans: [
       {
@@ -178,9 +178,9 @@ const es = {
     perMonth: '/ mes',
     includes: [
       'Tarjeta de sellos o identificadora, a tu elección',
-      'Panel de predicción de comportamiento',
-      'Alertas de riesgo de abandono',
-      'Conexión a tu caja (POS)',
+      'Panel del dueño: ventas, horas flojas y clientes en riesgo',
+      'Aviso “te extrañamos” y mensajes de cumpleaños en la tarjeta',
+      'Conexión a tu caja (Loyverse, API de ventas o registro manual)',
       'Soporte por WhatsApp',
     ],
     unlimitedTitle: 'Sin límites',
@@ -216,8 +216,36 @@ const es = {
     h2: 'Lo que todos preguntan',
     items: [
       {
+        q: '¿Qué es SUMA?',
+        a: 'SUMA es una plataforma colombiana de fidelización digital. Tu cliente guarda una tarjeta de sellos en el Apple Wallet o el Google Wallet de su celular, sin descargar ninguna app. La tarjeta se conecta a tu caja para sumar los sellos sola, y tu panel convierte cada compra en información: quién vuelve, quién se aleja, qué horas están flojas y cuánto vas a vender.',
+      },
+      {
         q: '¿SUMA es solo una tarjeta de puntos?',
-        a: 'No. La tarjeta es lo que ve tu cliente; lo que tú recibes es un software de predicción de comportamiento: saber quién está en riesgo de no volver, por qué te compran de verdad y qué los hace dudar.',
+        a: 'No. La tarjeta es lo que ve tu cliente; lo que tú recibes es un panel que aprende de tus ventas y te muestra quién se está alejando, qué horas están flojas y cómo vienen tus próximos días. Si todavía no hay datos suficientes, el panel te lo dice en vez de inventar números.',
+      },
+      {
+        q: '¿Mis clientes tienen que descargar una app?',
+        a: 'No. Escanean el QR de tu local, se registran en unos 30 segundos y la tarjeta queda guardada en el Wallet de su iPhone o Android.',
+      },
+      {
+        q: '¿Con qué cajas funciona SUMA?',
+        a: 'Se conecta a Loyverse. Para otras cajas hay una API de ventas con la que tu proveedor envía cada venta a SUMA, y si tu caja no se puede conectar, el sello se suma desde una pantalla de caja de SUMA. Cuéntanos qué usas y te decimos cuál camino aplica.',
+      },
+      {
+        q: '¿Cuánto cuesta?',
+        a: 'Desde {240000} al mes por la primera sede y {30000} por cada sede adicional. Los planes semestral y anual bajan la mensualidad a {180000} y {150000}. Todos incluyen tarjeta, panel y soporte por WhatsApp.',
+      },
+      {
+        q: '¿Qué pasa con los datos de mis clientes?',
+        a: 'Es tu base de datos propia: nombre, celular e historial de compras. Cada cliente autoriza el tratamiento de sus datos conforme a la Ley 1581 de 2012 (habeas data) y las promociones requieren una autorización aparte. Esa información nunca se comparte con otros negocios.',
+      },
+      {
+        q: '¿SUMA llena de mensajes a mis clientes?',
+        a: 'No. Los avisos son del programa de fidelización: sello sumado, premio listo, cumpleaños o “te extrañamos”. No enviamos promociones masivas.',
+      },
+      {
+        q: '¿Cuánto tarda en estar funcionando?',
+        a: 'Normalmente unas dos semanas desde la firma: configuramos tu tarjeta con tu marca, la conectamos a tu caja y dejamos tu QR listo para el mostrador.',
       },
       {
         q: '¿Tengo que elegir un solo tipo de tarjeta?',
@@ -226,10 +254,6 @@ const es = {
       {
         q: '¿Hay permanencia?',
         a: 'Depende del plan: el mensual no tiene permanencia y lo cancelas cuando quieras, el semestral tiene permanencia de 6 meses y el anual de 12 meses.',
-      },
-      {
-        q: '¿Qué pasa con los datos de mis clientes?',
-        a: 'Es tu base de datos propia. Tus clientes autorizan recibir tus promociones y esa información nunca se comparte con otros negocios.',
       },
       {
         q: '¿Puedo pagar en línea?',
@@ -242,7 +266,7 @@ const es = {
     ],
   },
   footer: {
-    tagline: 'Predicción de clientes y tarjetas de fidelización digital. Con SUMA, todo suma.',
+    tagline: 'Tarjeta de fidelización digital con panel de datos para tu negocio. Con SUMA, todo suma.',
     navAria: 'Pie de página',
     nav: [
       ['Tipos de tarjeta', '#tarjetas'],
@@ -267,10 +291,10 @@ const en: Dict = {
   locale: 'en-US',
   langName: 'English',
   meta: {
-    title: 'Digital loyalty cards in Apple & Google Wallet | SUMA',
+    title: 'Digital stamp card that learns from your customers | SUMA',
     description:
-      'Digital loyalty and stamp cards in Apple and Google Wallet, plus a customer prediction dashboard, for businesses in Bogotá and across Colombia. Know who is about to stop coming back, before you lose them. From $240,000 COP/month.',
-    ogAlt: 'SUMA: customer prediction and digital loyalty cards.',
+      'Stamp cards in Apple and Google Wallet linked to your POS, plus a dashboard that learns from your sales. From $240,000 COP/month.',
+    ogAlt: 'SUMA: digital loyalty card in Wallet and a customer data dashboard for your business.',
   },
   wa: {
     contact: 'Hi, I would like to know more about SUMA for my business.',
@@ -295,12 +319,12 @@ const en: Dict = {
     langAria: 'Language',
   },
   hero: {
-    eyebrow: 'Before you lose them, find out',
-    h1: ['Don’t lose a customer ', 'without knowing it', '.'],
-    sub: "SUMA is the customer behavior prediction software that today only big agencies use, built for your business. It knows who is about to stop coming back, understands why customers really buy from you, and spots the doubt that almost made them say no. All without asking your customer anything.",
+    eyebrow: 'Digital loyalty, backed by data',
+    h1: ['The loyalty card that ', 'learns from your customers', '.'],
+    sub: 'SUMA puts a stamp card in your customer’s Apple Wallet or Google Wallet, connects to your POS and turns every sale into useful insight: who keeps coming back, who is drifting away, which hours are slow and how much you are about to sell. No apps, and no questions for anyone.',
     demo: 'See pricing and book a demo',
     wa: 'Message us on WhatsApp',
-    bullets: ['Spots who is about to stop coming back, before they leave', 'A dashboard built for your business goals', 'Zero questions to your customers'],
+    bullets: ['Card in Apple and Google Wallet, no app', 'Stamps arrive on their own from your register', 'A dashboard that shows who is drifting away'],
     logo: ['Your', 'logo'],
     stamps: 'STAMPS',
     stampsOf: '6 OF 10',
@@ -369,41 +393,41 @@ const en: Dict = {
     eyebrow: 'For your customers',
     h2: 'This simple for them. One more data point for you, every visit.',
     steps: [
-      ['Scan', "Scan the shop's QR code.", 'Customer scanning the digital loyalty card sign-up QR code with their phone at a café table'],
-      ['Sign up', '30 seconds and it is saved in their Wallet.', 'Customer filling in the digital loyalty card sign-up form on her phone'],
-      ['Charge as usual', 'Same as always. You ask for their ID number.', 'Business owner charging a customer at the register, without changing how they charge'],
-      ['Add data', 'It lands on their phone by itself and feeds your dashboard.', 'Customer showing her digital stamp card in her phone Wallet'],
+      ['Scan', 'Scan the QR code at your shop.', 'Customer scanning the digital loyalty card sign-up QR code with their phone at a café table'],
+      ['Sign up', '30 seconds and the card is saved in their Wallet.', 'Customer filling in the digital loyalty card sign-up form on their phone'],
+      ['Charge as usual', 'You charge as always and link the sale to their phone number.', 'Business owner charging a customer at the register, without changing how they charge'],
+      ['Add data', 'The stamp lands on their phone by itself and feeds your dashboard.', 'Customer showing their digital stamp card in the phone Wallet'],
     ],
     cta: 'See pricing and plans',
   },
   benefits: {
     eyebrow: 'More than a card',
-    h2: ['Your customer sees the card. ', 'You get the analysis.'],
+    h2: ['Your customer sees the card. ', 'The analysis is yours.'],
     big: {
-      kicker: 'Your competitive edge',
-      title: 'The view only big agencies had, now it is yours.',
-      text: 'With your own small data, you know how each customer behaves, you analyze it and predict it, without asking them anything.',
-      imgAlt: 'Business owner reviewing the SUMA customer prediction dashboard',
+      kicker: 'Your edge',
+      title: 'Your own data, working for your business.',
+      text: 'Every sale is saved in your history. With it, SUMA learns the rhythm of your customers: how long they take to come back, which days and hours you sell the most, and how holidays, payday or the weather affect you. No surveys, and no questions for anyone.',
+      imgAlt: 'Business owner reviewing the SUMA customer and sales dashboard',
     },
-    data: { title: 'Churn risk, in time', text: 'We detect when a customer is about to stop coming back, before you lose them, so you can react.' },
-    pos: { title: 'A dashboard built for your goal', text: 'Want to open another location? We review your sales and customer behavior and tell you when you are ready. Planning an event? We predict the best date and time for your customers.' },
+    data: { title: 'Who is drifting away, in time', text: 'When a customer takes longer than usual to come back, you see it on your dashboard and their card gets a “we miss you” notice. No calls and no mass messages.' },
+    pos: { title: 'A dashboard that answers questions', text: 'How much will I sell this week? Which hours are slow? Who is about to stop coming? Your dashboard answers in plain language, with ranges, and shows how often it has been right.' },
     channel: {
-      title: 'Understand your customer without asking anything',
-      text: 'We analyze your business’s Jobs To Be Done (what your customer really expects) and your audience’s cognitive dissonance (what makes them hesitate before buying), using only the data you already generate.',
-      tag: 'Jobs To Be Done',
+      title: 'Decisions backed by data, not guesses',
+      text: 'A one-tap double stamp in slow hours, the best date for an event or knowing whether you are ready to open another location. SUMA recommends based on your own customers and tells you when it still lacks the data to do so.',
+      tag: 'Owner dashboard',
     },
     cmp: { bad: 'Before', good: 'With SUMA' },
     rows: [
-      ['Only big brands could profile each customer', 'You also know how each customer behaves'],
-      ['You find out you lost a customer once they stop coming', 'We warn you before they leave'],
-      ['You decide blind on when to open a location or run an event', 'You decide with real data from your own customers'],
+      ['You understand your customers by gut feeling', 'Your purchase data shows who comes back and who is drifting away'],
+      ['You find out you lost a customer when they no longer come', 'You see in time who is taking longer than usual to return'],
+      ['You decide blindly when to run an event or open another location', 'You decide with the history of your own business'],
     ],
     cta: 'See pricing and plans',
   },
   pricing: {
     eyebrow: 'Pricing',
     h2: ['The more you commit, ', 'the less you pay.'],
-    sub: 'All three plans include a stamp or ID card (or both), a prediction dashboard and churn-risk alerts.',
+    sub: 'Every plan includes the card (stamp, ID or both), the owner dashboard, your POS connection and WhatsApp support.',
     insteadOf: 'instead of {240000}/month',
     plans: [
       {
@@ -434,9 +458,9 @@ const en: Dict = {
     perMonth: '/ month',
     includes: [
       'Stamp or ID card, your choice',
-      'Behavior prediction dashboard',
-      'Churn-risk alerts',
-      'POS connection',
+      'Owner dashboard: sales, slow hours and at-risk customers',
+      '“We miss you” notice and birthday messages on the card',
+      'POS connection (Loyverse, sales API or manual entry)',
       'WhatsApp support',
     ],
     unlimitedTitle: 'No limits',
@@ -472,33 +496,57 @@ const en: Dict = {
     h2: 'What everyone asks',
     items: [
       {
-        q: 'Is SUMA just a punch card?',
-        a: 'No. The card is what your customer sees; what you get is a customer behavior prediction software: it knows who is at risk of not coming back, why they really buy from you, and what makes them hesitate.',
+        q: 'What is SUMA?',
+        a: 'SUMA is a Colombian digital loyalty platform. Your customer keeps a stamp card in the Apple Wallet or Google Wallet on their phone, with no app to download. The card connects to your POS so stamps are added automatically, and your dashboard turns every sale into insight: who keeps coming back, who is drifting away, which hours are slow and how much you are about to sell.',
       },
       {
-        q: 'Do I have to pick a single card type?',
-        a: 'No. You can have a stamp card, an ID card, or both, at no extra cost. You decide which to use for your business.',
+        q: 'Is SUMA just a points card?',
+        a: 'No. The card is what your customer sees; what you get is a dashboard that learns from your sales and shows who is drifting away, which hours are slow and how your next days look. When there is not enough data yet, the dashboard tells you instead of making numbers up.',
       },
       {
-        q: 'Is there a minimum term?',
-        a: 'It depends on the plan: the monthly plan has no minimum term and you cancel whenever you want, the 6-month plan has a 6-month minimum term, and the annual plan has a 12-month minimum term.',
+        q: 'Do my customers need to download an app?',
+        a: 'No. They scan the QR code at your shop, sign up in about 30 seconds and the card is saved in the Wallet of their iPhone or Android.',
       },
       {
-        q: "What happens with my customers' data?",
-        a: "It is your own database. Your customers opt in to receive your promotions, and that information is never shared with other businesses.",
+        q: 'Which POS systems work with SUMA?',
+        a: 'SUMA connects to Loyverse. For other registers there is a sales API your provider uses to send each sale to SUMA, and if your register cannot be connected, stamps are added from a SUMA checkout screen. Tell us what you use and we will tell you which path applies.',
+      },
+      {
+        q: 'How much does it cost?',
+        a: 'From {240000} per month for the first location and {30000} for each additional location. The 6-month and annual plans lower the monthly price to {180000} and {150000}. All plans include the card, the dashboard and WhatsApp support.',
+      },
+      {
+        q: 'What happens with my customers’ data?',
+        a: 'It is your own database: name, phone number and purchase history. Each customer accepts the processing of their data under Colombia’s Law 1581 of 2012 (habeas data), and promotions require a separate consent. That information is never shared with other businesses.',
+      },
+      {
+        q: 'Will SUMA flood my customers with messages?',
+        a: 'No. Notices are part of the loyalty program: stamp added, reward ready, birthday or “we miss you”. We do not send mass promotions.',
+      },
+      {
+        q: 'How long until it is up and running?',
+        a: 'Usually about two weeks from signing: we set up your card with your brand, connect it to your POS and leave your QR code ready for the counter.',
+      },
+      {
+        q: 'Do I have to choose a single card type?',
+        a: 'No. You can have a stamp card, an ID card or both at no extra cost. You decide which to use for your business.',
+      },
+      {
+        q: 'Is there a minimum commitment?',
+        a: 'It depends on the plan: the monthly plan has no commitment and you can cancel any time, the 6-month plan has a 6-month commitment and the annual plan 12 months.',
       },
       {
         q: 'Can I pay online?',
         a: 'Online payment is on its way. For now we arrange your plan and demo over WhatsApp.',
       },
       {
-        q: 'Does SUMA work for businesses in Bogotá and the surrounding area?',
-        a: 'Yes. SUMA is built for businesses in Bogotá, the Sabana (Chía, Cajicá, Zipaquirá, Cota, Sopó) and the main cities of Colombia, such as Medellín, Cali, Barranquilla, Cartagena and Bucaramanga. Message us on WhatsApp and we will arrange your demo.',
+        q: 'Does SUMA work for businesses in Bogotá and the Sabana?',
+        a: 'Yes. SUMA is for businesses in Bogotá, the Sabana (Chía, Cajicá, Zipaquirá, Cota, Sopó) and Colombia’s main cities, such as Medellín, Cali, Barranquilla, Cartagena and Bucaramanga. Message us on WhatsApp and we will set up your demo.',
       },
     ],
   },
   footer: {
-    tagline: 'Customer prediction and digital loyalty cards. With SUMA, everything adds up.',
+    tagline: 'Digital loyalty cards with a data dashboard for your business. With SUMA, everything adds up.',
     navAria: 'Footer',
     nav: [
       ['Card types', '#tarjetas'],
@@ -521,10 +569,10 @@ const pt: Dict = {
   locale: 'pt-BR',
   langName: 'Português',
   meta: {
-    title: 'Cartões de fidelidade digitais no Apple e Google Wallet | SUMA',
+    title: 'Cartão de selos digital que aprende com seus clientes | SUMA',
     description:
-      'Cartões de fidelidade digitais com selos no Apple e Google Wallet, mais um painel de previsão de clientes, para negócios em Bogotá e em toda a Colômbia. Saiba quem está perto de deixar de voltar, antes de perdê-lo. A partir de $240.000 COP/mês.',
-    ogAlt: 'SUMA: previsão de clientes e cartões de fidelidade digitais.',
+      'Cartão de selos no Apple e Google Wallet ligado ao seu caixa, com painel que aprende com suas vendas. A partir de $240.000 COP/mês.',
+    ogAlt: 'SUMA: cartão de fidelidade digital no Wallet e painel de dados de clientes para o seu negócio.',
   },
   wa: {
     contact: 'Olá, quero saber mais sobre a SUMA para o meu negócio.',
@@ -549,12 +597,12 @@ const pt: Dict = {
     langAria: 'Idioma',
   },
   hero: {
-    eyebrow: 'Antes de perdê-lo, descubra',
-    h1: ['Não perca um cliente ', 'sem saber', '.'],
-    sub: 'A SUMA é o software de previsão de comportamento de clientes que hoje só as grandes agências usam, sob a medida do seu negócio. Sabe quem está perto de deixar de voltar, entende por que compram de você de verdade e detecta a dúvida que quase os fez dizer não. Tudo sem perguntar nada ao seu cliente.',
+    eyebrow: 'Fidelidade digital com dados',
+    h1: ['O cartão de fidelidade que ', 'aprende com seus clientes', '.'],
+    sub: 'A SUMA coloca o cartão de selos no Apple Wallet ou no Google Wallet do seu cliente, conecta ao seu caixa e transforma cada compra em informação útil: quem volta, quem está se afastando, quais horários estão fracos e quanto você vai vender. Sem apps e sem fazer perguntas a ninguém.',
     demo: 'Ver preços e agendar uma demo',
     wa: 'Falar pelo WhatsApp',
-    bullets: ['Detecta quem está perto de deixar de voltar, antes que isso aconteça', 'Painel feito para os objetivos do seu negócio', 'Zero perguntas aos seus clientes'],
+    bullets: ['Cartão no Apple e no Google Wallet, sem app', 'O selo chega sozinho a partir do seu caixa', 'Um painel que mostra quem está se afastando'],
     logo: ['Seu', 'logo'],
     stamps: 'SELOS',
     stampsOf: '6 DE 10',
@@ -625,39 +673,39 @@ const pt: Dict = {
     steps: [
       ['Escaneie', 'Escaneie o QR da loja.', 'Cliente escaneando com o celular o QR de cadastro do cartão de fidelidade digital em uma mesa de cafeteria'],
       ['Cadastre-se', '30 segundos e o cartão fica salvo no Wallet.', 'Cliente preenchendo no celular o formulário de cadastro do cartão de fidelidade digital'],
-      ['Cobre igual', 'Como sempre. Você pede o documento.', 'Dono de um negócio cobrando uma cliente no caixa, sem mudar sua forma de cobrar'],
-      ['Acumule dados', 'Chega sozinho ao celular dele e alimenta o seu painel.', 'Cliente mostrando o cartão de selos digital no Wallet do celular'],
+      ['Cobre como sempre', 'Você cobra como sempre e associa a venda ao celular do cliente.', 'Dono de um negócio cobrando de uma cliente no caixa, sem mudar a forma de cobrar'],
+      ['Some dados', 'O selo chega sozinho ao celular e alimenta o seu painel.', 'Cliente mostrando o cartão de selos digital no Wallet do celular'],
     ],
     cta: 'Ver preços e planos',
   },
   benefits: {
     eyebrow: 'Mais que um cartão',
-    h2: ['O cartão quem vê é o seu cliente. ', 'A análise é sua.'],
+    h2: ['Quem vê o cartão é o seu cliente. ', 'A análise é sua.'],
     big: {
-      kicker: 'Sua vantagem competitiva',
-      title: 'A visão que só as grandes agências tinham, agora é sua.',
-      text: 'Com a sua própria small data, você sabe como cada cliente se comporta, analisa e prevê, sem pedir nem perguntar nada a ele.',
-      imgAlt: 'Dono de negócio revisando o painel de previsão de clientes da SUMA',
+      kicker: 'Sua vantagem',
+      title: 'Seus próprios dados trabalhando pelo seu negócio.',
+      text: 'Cada compra fica guardada no seu histórico. Com ele, a SUMA aprende o ritmo da sua clientela: quanto tempo levam para voltar, em quais dias e horários você mais vende e como influenciam os feriados, o dia de pagamento ou o clima. Sem pesquisas e sem perguntar nada a ninguém.',
+      imgAlt: 'Dono de um negócio revisando o painel de dados de clientes e vendas da SUMA',
     },
-    data: { title: 'Risco de abandono, a tempo', text: 'Detectamos quando um cliente está perto de deixar de voltar, antes de você perdê-lo, para que possa reagir.' },
-    pos: { title: 'Um painel feito para o seu objetivo', text: 'Quer abrir outra loja? Analisamos suas vendas e o comportamento dos seus clientes e dizemos quando você está pronto. Vai fazer um evento? Prevemos a melhor data e hora de acordo com a sua clientela.' },
+    data: { title: 'Quem está se afastando, a tempo', text: 'Quando um cliente demora mais que o normal para voltar, você vê no seu painel e o cartão dele recebe um aviso de “sentimos sua falta”. Sem ligações nem mensagens em massa.' },
+    pos: { title: 'Um painel que responde perguntas', text: 'Quanto vou vender esta semana? Quais horários estão fracos? Quem está prestes a deixar de voltar? Seu painel responde em linguagem simples, com faixas e mostrando o quanto já acertou.' },
     channel: {
-      title: 'Entenda seu cliente sem perguntar nada',
-      text: 'Analisamos o Jobs To Be Done do seu negócio (o que o seu cliente espera de verdade) e a dissonância cognitiva do seu público (o que o faz hesitar antes de comprar), usando só os dados que você já gera.',
-      tag: 'Jobs To Be Done',
+      title: 'Decisões com dados, não às cegas',
+      text: 'Um selo duplo com um toque nos horários fracos, a melhor data para um evento ou saber se você já está pronto para abrir outra unidade. A SUMA recomenda com a sua própria clientela e avisa quando ainda faltam dados para isso.',
+      tag: 'Painel do dono',
     },
     cmp: { bad: 'Antes', good: 'Com a SUMA' },
     rows: [
-      ['Só as grandes marcas conseguiam perfilar cada cliente', 'Você também sabe como cada cliente se comporta'],
-      ['Você descobre que perdeu um cliente quando ele já não volta', 'Avisamos você antes de ele ir'],
-      ['Você decide no escuro quando abrir uma loja ou fazer um evento', 'Você decide com dados reais da sua própria clientela'],
+      ['Você entende sua clientela por intuição', 'Seus dados de compra mostram quem volta e quem se afasta'],
+      ['Você só descobre que perdeu um cliente quando ele não volta mais', 'Você vê a tempo quem está demorando mais que o normal para voltar'],
+      ['Você decide às cegas quando fazer um evento ou abrir outra unidade', 'Você decide com o histórico do seu próprio negócio'],
     ],
     cta: 'Ver preços e planos',
   },
   pricing: {
     eyebrow: 'Preços',
     h2: ['Quanto mais você se compromete, ', 'menos você paga.'],
-    sub: 'Os três planos incluem cartão de selos ou identificador (ou os dois), painel de previsão e alertas de risco de abandono.',
+    sub: 'Todos os planos incluem o cartão (de selos, identificador ou ambos), o painel do dono, a conexão ao seu caixa e suporte por WhatsApp.',
     insteadOf: 'em vez de {240000}/mês',
     plans: [
       {
@@ -688,9 +736,9 @@ const pt: Dict = {
     perMonth: '/ mês',
     includes: [
       'Cartão de selos ou identificador, à sua escolha',
-      'Painel de previsão de comportamento',
-      'Alertas de risco de abandono',
-      'Conexão com o seu caixa (PDV)',
+      'Painel do dono: vendas, horários fracos e clientes em risco',
+      'Aviso de “sentimos sua falta” e mensagens de aniversário no cartão',
+      'Conexão ao seu caixa (Loyverse, API de vendas ou registro manual)',
       'Suporte por WhatsApp',
     ],
     unlimitedTitle: 'Sem limites',
@@ -726,20 +774,44 @@ const pt: Dict = {
     h2: 'O que todo mundo pergunta',
     items: [
       {
+        q: 'O que é a SUMA?',
+        a: 'A SUMA é uma plataforma colombiana de fidelidade digital. Seu cliente guarda um cartão de selos no Apple Wallet ou no Google Wallet do celular, sem baixar nenhum app. O cartão se conecta ao seu caixa para somar os selos sozinho, e o seu painel transforma cada compra em informação: quem volta, quem se afasta, quais horários estão fracos e quanto você vai vender.',
+      },
+      {
         q: 'A SUMA é só um cartão de pontos?',
-        a: 'Não. O cartão é o que o seu cliente vê; o que você recebe é um software de previsão de comportamento: sabe quem está em risco de não voltar, por que compram de você de verdade e o que os faz hesitar.',
+        a: 'Não. O cartão é o que o seu cliente vê; o que você recebe é um painel que aprende com as suas vendas e mostra quem está se afastando, quais horários estão fracos e como vêm os próximos dias. Se ainda não há dados suficientes, o painel avisa em vez de inventar números.',
       },
       {
-        q: 'Preciso escolher um único tipo de cartão?',
-        a: 'Não. Você pode ter cartão de selos, cartão identificador ou os dois, sem custo extra. Você decide qual usar no seu negócio.',
+        q: 'Meus clientes precisam baixar um app?',
+        a: 'Não. Eles escaneiam o QR da sua loja, se cadastram em cerca de 30 segundos e o cartão fica salvo no Wallet do iPhone ou do Android.',
       },
       {
-        q: 'Há fidelidade contratual?',
-        a: 'Depende do plano: o mensal não tem fidelidade e você cancela quando quiser, o semestral tem fidelidade de 6 meses e o anual, de 12 meses.',
+        q: 'Com quais caixas a SUMA funciona?',
+        a: 'Conecta-se ao Loyverse. Para outros caixas há uma API de vendas pela qual o seu fornecedor envia cada venda à SUMA e, se o seu caixa não puder ser conectado, o selo é somado em uma tela de caixa da SUMA. Conte-nos o que você usa e dizemos qual caminho se aplica.',
+      },
+      {
+        q: 'Quanto custa?',
+        a: 'A partir de {240000} por mês pela primeira unidade e {30000} por unidade adicional. Os planos semestral e anual reduzem a mensalidade para {180000} e {150000}. Todos incluem cartão, painel e suporte por WhatsApp.',
       },
       {
         q: 'O que acontece com os dados dos meus clientes?',
-        a: 'É a sua base de dados própria. Seus clientes autorizam receber suas promoções, e essa informação nunca é compartilhada com outros negócios.',
+        a: 'É a sua base de dados própria: nome, celular e histórico de compras. Cada cliente autoriza o tratamento dos seus dados conforme a Lei 1581 de 2012 da Colômbia (habeas data) e as promoções exigem uma autorização à parte. Essa informação nunca é compartilhada com outros negócios.',
+      },
+      {
+        q: 'A SUMA enche meus clientes de mensagens?',
+        a: 'Não. Os avisos são do programa de fidelidade: selo somado, prêmio pronto, aniversário ou “sentimos sua falta”. Não enviamos promoções em massa.',
+      },
+      {
+        q: 'Em quanto tempo fica funcionando?',
+        a: 'Normalmente cerca de duas semanas a partir da assinatura: configuramos o seu cartão com a sua marca, conectamos ao seu caixa e deixamos o seu QR pronto para o balcão.',
+      },
+      {
+        q: 'Preciso escolher um único tipo de cartão?',
+        a: 'Não. Você pode ter cartão de selos, cartão identificador ou ambos, sem custo extra. Você decide qual usar de acordo com o seu negócio.',
+      },
+      {
+        q: 'Existe fidelidade mínima?',
+        a: 'Depende do plano: o mensal não tem fidelidade e você cancela quando quiser, o semestral tem fidelidade de 6 meses e o anual de 12 meses.',
       },
       {
         q: 'Posso pagar online?',
@@ -747,12 +819,12 @@ const pt: Dict = {
       },
       {
         q: 'A SUMA serve para negócios em Bogotá e arredores?',
-        a: 'Sim. A SUMA é para negócios de Bogotá, da Sabana (Chía, Cajicá, Zipaquirá, Cota, Sopó) e das principais cidades da Colômbia, como Medellín, Cali, Barranquilla, Cartagena e Bucaramanga. Fale com a gente pelo WhatsApp e agendamos sua demo.',
+        a: 'Sim. A SUMA é para negócios de Bogotá, da Sabana (Chía, Cajicá, Zipaquirá, Cota, Sopó) e das principais cidades da Colômbia, como Medellín, Cali, Barranquilla, Cartagena e Bucaramanga. Escreva pelo WhatsApp e combinamos sua demo.',
       },
     ],
   },
   footer: {
-    tagline: 'Previsão de clientes e cartões de fidelidade digitais. Com a SUMA, tudo soma.',
+    tagline: 'Cartões de fidelidade digitais com painel de dados para o seu negócio. Com a SUMA, tudo soma.',
     navAria: 'Rodapé',
     nav: [
       ['Tipos de cartão', '#tarjetas'],

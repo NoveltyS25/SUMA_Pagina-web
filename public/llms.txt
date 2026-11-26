@@ -1,6 +1,18 @@
 # SUMA
 
-> SUMA es una plataforma colombiana de tarjetas de fidelización digital con sellos para Apple Wallet y Google Wallet, conectada a la caja (POS) del negocio. Sin apps para el cliente. Membresía desde $240.000 COP al mes por sede.
+> SUMA es una plataforma colombiana de fidelización digital. El cliente guarda una tarjeta de sellos en el Apple Wallet o el Google Wallet de su celular, sin descargar ninguna app. La tarjeta se conecta a la caja del negocio para sumar los sellos sola, y un panel para el dueño convierte cada compra en información: quién vuelve, quién se está alejando, qué horas están flojas y cuánto se va a vender. Membresía desde $240.000 COP al mes por sede.
+
+## Datos clave (para citar)
+- Qué es: software de fidelización digital con panel de datos para negocios locales (cafeterías, restaurantes, bares, panaderías, tiendas).
+- Empresa: SUMA, Zipaquirá (Cundinamarca), Colombia.
+- Tarjeta: de sellos, identificadora o ambas, en Apple Wallet y Google Wallet. El cliente no instala ninguna app; se registra escaneando un QR en unos 30 segundos.
+- Cajas (POS): conexión a Loyverse; API de ventas para otros sistemas; o sellos desde una pantalla de caja de SUMA.
+- Panel del dueño: pronóstico de ventas de los próximos días con rango y acierto a la vista, horas flojas con sello doble de un toque, clientes que tardan más de lo normal en volver, premios, cumpleaños, fechas para eventos y señales para decidir un segundo local. Cuando aún no hay datos suficientes, el panel lo dice en vez de inventar números.
+- Mensajes al cliente: solo del programa (sello sumado, premio listo, cumpleaños, “te extrañamos”). Sin promociones masivas.
+- Datos: base propia de cada negocio; tratamiento conforme a la Ley 1581 de 2012 (habeas data) con autorización del cliente y autorización aparte para promociones. No se comparten con otros negocios.
+- Precios (COP): plan mensual $240.000 al mes sin permanencia; semestral $180.000 al mes (6 meses); anual $150.000 al mes (12 meses). Cada sede adicional suma $30.000 al mes. Oferta de bienvenida: paga 3 meses y recibe 3 gratis.
+- Puesta en marcha: normalmente unas dos semanas desde la firma.
+- Cobertura: Bogotá, la Sabana de Bogotá (Chía, Cajicá, Zipaquirá, Cota, Sopó) y las principales ciudades de Colombia: Medellín, Cali, Barranquilla, Cartagena y Bucaramanga. Sitio también en inglés (/en/) y portugués (/pt/).
 
 ## Páginas
 - [Inicio](https://sumafidelidad.com/): qué es SUMA, cómo funciona, precios y preguntas frecuentes
@@ -14,8 +26,5 @@
 - [Política de datos](https://sumafidelidad.com/politica-de-datos)
 - [Términos y condiciones](https://sumafidelidad.com/terminos-y-condiciones)
 
-## Cobertura
-Negocios en Bogotá, la Sabana de Bogotá (Chía, Cajicá, Zipaquirá, Cota, Sopó) y las principales ciudades de Colombia: Medellín, Cali, Barranquilla, Cartagena y Bucaramanga. También en inglés (/en/) y portugués (/pt/).
-
 ## Contacto
-WhatsApp +57 319 329 9348
+WhatsApp +57 319 329 9348 · hola@sumafidelidad.com

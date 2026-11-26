@@ -56,6 +56,11 @@ const jsonLd = [
     name: 'SUMA',
     url: SITE_URL,
     logo: `${SITE_URL}/logos/suma-negro.png`,
+    slogan: 'Con SUMA, todo suma.',
+    description:
+      'SUMA es una plataforma colombiana de fidelización digital: tarjetas de sellos en Apple Wallet y Google Wallet conectadas a la caja del negocio, con un panel que aprende de las ventas para mostrar quién se aleja, qué horas están flojas y cuánto se va a vender.',
+    foundingLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: 'Zipaquirá', addressCountry: 'CO' } },
+    knowsAbout: ['fidelización de clientes', 'tarjetas de sellos digitales', 'Apple Wallet', 'Google Wallet', 'analítica de clientes', 'pronóstico de ventas para pequeños negocios'],
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: `+${WA_NUMBER}`,
@@ -71,15 +76,24 @@ const jsonLd = [
     '@type': 'SoftwareApplication',
     name: 'SUMA',
     applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Loyalty program software',
     operatingSystem: 'Apple Wallet, Google Wallet',
+    featureList: [
+      'Tarjeta de sellos o identificadora en Apple Wallet y Google Wallet, sin app',
+      'Conexión a la caja: Loyverse, API de ventas o registro manual',
+      'Registro del cliente por QR en unos 30 segundos',
+      'Categorías de clientes, premios y mensajes de cumpleaños',
+      'Aviso de “te extrañamos” para clientes que dejan de volver',
+      'Panel del dueño con pronóstico de ventas, horas flojas y clientes en riesgo',
+      'Cumplimiento de la Ley 1581 de 2012 (habeas data)',
+    ],
     areaServed,
     description,
-    offers: {
-      '@type': 'Offer',
-      price: PRICE_MONTH,
-      priceCurrency: 'COP',
-      description: 'Membresía mensual por sede',
-    },
+    offers: [
+      { '@type': 'Offer', name: 'Plan mensual', price: PRICE_MONTH, priceCurrency: 'COP', description: 'Membresía mensual por sede, sin permanencia' },
+      { '@type': 'Offer', name: 'Plan semestral', price: 180000, priceCurrency: 'COP', description: 'Mensualidad por sede con permanencia de 6 meses' },
+      { '@type': 'Offer', name: 'Plan anual', price: 150000, priceCurrency: 'COP', description: 'Mensualidad por sede con permanencia de 12 meses' },
+    ],
   },
   {
     '@context': 'https://schema.org',
