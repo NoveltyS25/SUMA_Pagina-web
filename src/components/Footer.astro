@@ -2,7 +2,6 @@
 import { waLinks, WA_DISPLAY, CONTACT_EMAIL } from '../lib/site';
 import { ui, type Lang } from '../i18n/ui';
 import { homeLink } from '../lib/i18n';
-import Mark from './Mark.astro';
 import { niches } from '../lib/niches';
 
 interface Props {
@@ -13,11 +12,10 @@ const t = ui[lang].footer;
 const WA_CONTACT = waLinks(lang).contact;
 ---
 
-<footer class="relative overflow-hidden border-t border-white/10">
-  <Mark kind="arch" class="pointer-events-none absolute -right-10 -top-6 w-72 text-white/[0.04]" />
+<footer class="relative overflow-hidden border-t border-white/10 bg-ink-2">
   <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between">
     <div>
-      <img src="/logos/suma-blanco.png" alt="SUMA" width="120" height="68" class="h-9 w-auto" loading="lazy" />
+      <img src="/logos/suma-negro-sm.webp" alt="SUMA" width="120" height="70" class="h-9 w-auto" loading="lazy" decoding="async" />
       <p class="mt-3 text-sm text-mute">{t.tagline}</p>
     </div>
     <nav class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-mute" aria-label={t.navAria}>

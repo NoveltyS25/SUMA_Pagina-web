@@ -1,0 +1,63 @@
+---
+import { waLinks } from '../lib/site';
+import { ui, type Lang } from '../i18n/ui';
+import { homeLink } from '../lib/i18n';
+interface Props { lang?: Lang }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].panel;
+const sep = lang === 'en' ? '.' : ',';
+// Alturas de ejemplo (% del día): dos franjas flojas resaltadas
+const bars = [62, 78, 40, 70, 88, 100, 55];
+const low = new Set([2, 6]);
+---
+
+<section id="panel" class="hm-dark">
+  <div class="hm-wrap">
+    <div class="hm-panel-top">
+      <header class="hm-head reveal">
+        <p class="eyebrow eyebrow-l">{t.eyebrow}</p>
+        <h2 class="h2">{t.h2}</h2>
+        <a href={homeLink(lang, '#precios')} class="btn btn-light">{t.cta}</a>
+      </header>
+      <img class="hm-panel-photo reveal" src="/img/photos/panel.webp" alt={t.imgAlt} width="720" height="720" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="hm-tiles">
+      <article class="hm-tile reveal" data-anim>
+        <h3>{t.q1.q}</h3>
+        <p class="hm-big"><span data-count="2.3" data-dec="1" data-sep={sep} data-pre="$" data-suf=" M">{t.q1.big}</span></p>
+        <p class="hm-unit">{t.q1.unit}</p>
+        <div class="hm-range" aria-hidden="true"><i></i><b></b></div>
+        <p class="hm-small">{t.q1.range}</p>
+      </article>
+
+      <article class="hm-tile reveal" style="--d:.08s" data-anim>
+        <h3>{t.q2.q}</h3>
+        <div class="hm-bars" aria-hidden="true">
+          {
+            bars.map((h, i) => (
+              <span class:list={[low.has(i) && 'is-low']} style={`--h:${h}%;--i:${i}`}><i></i><em>{t.q2.days[i]}</em></span>
+            ))
+          }
+        </div>
+        <p class="hm-chip"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" fill="currentColor"/></svg>{t.q2.chip}</p>
+      </article>
+
+      <article class="hm-tile reveal" style="--d:.16s" data-anim>
+        <h3>{t.q3.q}</h3>
+        <ul class="hm-people">
+          {
+            t.q3.rows.map(([name, ago], i) => (
+              <li style={`--i:${i}`}>
+                <span class="hm-av" aria-hidden="true">{name[0]}</span>
+                <span><b>{name}</b><small>{ago}</small></span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="hm-chip hm-chip-ok"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{t.q3.sent}</p>
+      </article>
+    </div>
+    <p class="hm-note reveal">{t.note}</p>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import { waLinks } from '../lib/site';
+import { ui, type Lang } from '../i18n/ui';
+interface Props { lang?: Lang }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].cta;
+const wa = waLinks(lang);
+---
+
+<section class="hm-final">
+  <div class="hm-wrap">
+    <div class="hm-final-card reveal">
+      <div class="hm-final-t">
+        <h2 class="h2">{t.h2}</h2>
+        <p class="hm-lead">{t.sub}</p>
+        <a href={wa.demo} target="_blank" rel="noopener" class="btn btn-light">{t.btn}</a>
+      </div>
+      <img src="/img/photos/cliente-lg.webp" alt={t.alt} width="1100" height="1100" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import { ui, type Lang } from '../i18n/ui';
+import { rich } from '../lib/i18n';
+interface Props { lang?: Lang }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].faq;
+---
+
+<section id="preguntas" class="hm-sec">
+  <div class="hm-wrap hm-faq">
+    <header class="hm-head reveal">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 class="h2">{t.h2}</h2>
+    </header>
+    <div class="hm-acc reveal">
+      {
+        t.items.map((f) => (
+          <details name="faq">
+            <summary>{f.q}<span aria-hidden="true"></span></summary>
+            <p set:html={rich(f.a, lang)} />
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

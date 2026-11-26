@@ -2,7 +2,6 @@
 import { waLinks } from '../lib/site';
 import { ui, type Lang } from '../i18n/ui';
 import { money, rich } from '../lib/i18n';
-import Mark from './Mark.astro';
 
 interface Props {
   lang?: Lang;
@@ -10,198 +9,52 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const t = ui[lang].pricing;
 const p = t.promo;
-const faqT = ui[lang].faq;
 const wa = waLinks(lang);
 const planLinks = [wa.plan1, wa.plan6, wa.plan12];
 ---
 
-<section id="precios" class="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:py-32">
-  <div aria-hidden="true" class="pointer-events-none absolute -right-20 top-1/4 -z-0 size-[480px] rounded-full bg-volt/15 blur-[130px]"></div>
-  <Mark kind="pin" class="pointer-events-none absolute -left-6 top-10 hidden h-64 -rotate-[14deg] text-white/[0.04] md:block" />
-  <div class="reveal max-w-3xl">
-    <p class="eyebrow mb-4">{t.eyebrow}</p>
-    <h2 class="h2">{t.h2[0]}<span class="text-volt">{t.h2[1]}</span></h2>
-    <p class="mt-5 text-lg text-mute">{t.sub}</p>
-    <p data-money-note hidden class="mt-3 text-sm text-volt">{t.note}</p>
-  </div>
+<section id="precios" class="hm-sec hm-gray">
+  <div class="hm-wrap">
+    <header class="hm-head reveal">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 class="h2">{t.h2[0]}<span class="hm-accent">{t.h2[1]}</span></h2>
+      <p class="hm-lead">{t.sub}</p>
+      <p data-money-note hidden class="hm-small">{t.note}</p>
+    </header>
 
-  <div class="flex flex-col">
-  <div class="order-2 mt-14 grid gap-5 lg:order-1 lg:grid-cols-3">
-    {
-      t.plans.map((plan, i) => (
-        <article
-          class:list={[
-            'reveal flex flex-col p-8',
-            plan.highlight
-              ? 'relative overflow-hidden rounded-3xl text-bone shadow-[0_30px_80px_-30px_rgba(197,139,255,0.45)]'
-              : 'panel panel-glow',
-          ]}
-          style={plan.highlight ? 'background-image:radial-gradient(500px 400px at 0% 0%,rgba(255,255,255,.22),transparent 60%),linear-gradient(160deg,#6002ab,#370063)' : ''}
-        >
-          {
-            plan.highlight && (
-              <img
-                src="/img/foto-cobro-en-caja-tarjeta-sellos-digital.webp"
-                alt=""
-                width="900"
-                height="900"
-                loading="lazy"
-                class="absolute inset-0 h-full w-full object-cover opacity-25 [mask-image:linear-gradient(to_top,black,transparent_65%)]"
-              />
-            )
-          }
-          {plan.highlight && <Mark kind="arch" class="pointer-events-none absolute -bottom-8 -right-12 w-72 text-white/10" />}
-          <div class="relative flex flex-1 flex-col">
-            <p class:list={['font-display text-lg font-bold uppercase tracking-wider', plan.highlight ? 'text-white/70' : 'text-mute']}>{plan.name}</p>
-            {
-              plan.save && (
-                <p class:list={['mt-2 text-sm font-medium', plan.highlight ? 'text-white/70' : 'text-mute']} set:html={rich(t.insteadOf, lang)} />
-              )
-            }
-            <p class="mt-1 flex items-baseline gap-2">
-              <span class="font-display text-6xl font-extrabold leading-none sm:text-7xl" set:html={money(plan.price, lang)} />
-              <span class:list={plan.highlight ? 'text-white/70' : 'text-mute'}>{t.perMonth}</span>
-            </p>
-            <p class:list={['mt-4 text-sm', plan.highlight ? 'text-white/85' : 'text-mute']}>{plan.commitment}</p>
-            {
-              plan.save && (
-                <p class:list={['mt-3 inline-flex items-center gap-2 self-start rounded-full px-4 py-1.5 text-sm font-semibold', plan.highlight ? 'bg-ink text-volt' : 'border border-volt/40 bg-volt/10 text-volt']} set:html={rich(plan.save, lang)} />
-              )
-            }
-            <ul class:list={['mt-6 space-y-2.5 border-t pt-6 text-sm', plan.highlight ? 'border-white/20' : 'border-white/10']}>
-              {
-                t.includes.map((x) => (
-                  <li class="flex gap-2.5">
-                    <span class="mt-0.5 text-volt" aria-hidden="true">✓</span>
-                    {x}
-                  </li>
-                ))
-              }
-            </ul>
-            <div class="mt-auto pt-8">
-              <a
-                href={planLinks[i]}
-                target="_blank"
-                rel="noopener"
-                class:list={plan.highlight ? 'btn bg-ink text-volt hover:-translate-y-0.5' : 'btn btn-volt'}
-              >
-                {plan.cta}
-              </a>
-            </div>
-          </div>
-        </article>
-      ))
-    }
-  </div>
-
-  <div class="reveal order-3 panel panel-glow panel-green mt-6 flex flex-col gap-10 p-8 sm:flex-row sm:items-start sm:justify-between sm:p-10 lg:order-2">
-    <div>
-      <p class="font-display text-xl font-semibold uppercase tracking-[0.14em] text-volt">{t.unlimitedTitle}</p>
-      <ul class="mt-5 flex flex-wrap gap-3">
-        {
-          t.unlimited.map((x) => (
-            <li class="rounded-full border border-volt/40 bg-volt/10 px-6 py-3 text-lg font-bold">
-              {x} <span class="text-volt">{t.unlimitedSuffix}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div>
-      <p class="font-display text-lg font-semibold uppercase tracking-[0.14em] text-volt">{t.customTitle}</p>
-      <ul class="mt-4 flex flex-wrap gap-2">
-        {t.custom.map((x) => <li class="rounded-full border border-white/15 px-4 py-1.5 text-sm">{x}</li>)}
-      </ul>
-      <p class="mt-6 text-sm text-mute" set:html={rich(t.terms, lang)} />
-    </div>
-  </div>
-
-  <article
-    id="promo-card"
-    class="reveal order-1 relative mt-6 flex flex-col overflow-hidden rounded-3xl bg-royal p-8 text-bone shadow-[0_30px_80px_-30px_rgba(197,139,255,0.45)] sm:p-10 lg:order-3 lg:flex-row lg:items-center lg:gap-10"
-    style="background-image:radial-gradient(500px 400px at 0% 0%,rgba(255,255,255,.22),transparent 60%),linear-gradient(160deg,#6002ab,#370063)"
-  >
-    <img
-      src="/img/foto-cliente-tarjeta-sellos-wallet.webp"
-      alt=""
-      width="900"
-      height="900"
-      loading="lazy"
-      class="absolute inset-0 h-full w-full object-cover opacity-25 [mask-image:linear-gradient(to_top,black,transparent_65%)] lg:[mask-image:linear-gradient(to_left,black,transparent_65%)]"
-    />
-    <Mark kind="arch" class="pointer-events-none absolute -bottom-8 -right-12 w-72 text-white/10" />
-    <div class="relative flex-1">
-      <span class="inline-block rounded-full bg-ink px-3 py-1 text-xs font-bold uppercase tracking-wider text-volt">
-        {p.badge}
-      </span>
-      <p class="mt-4 font-display text-xl font-bold uppercase tracking-wider opacity-70">{p.kicker}</p>
-      <h3 class="mt-2 text-5xl sm:text-6xl">{p.title[0]}<br />{p.title[1]}</h3>
-
-      <div class="mt-8">
-        <p class="text-sm font-bold uppercase tracking-wider">{p.first6}</p>
-        <p class="flex flex-wrap items-baseline gap-x-3">
-          <span class="font-display text-[5.5rem] font-extrabold leading-[0.9] sm:text-[6.8rem]" set:html={money(120000, lang)} />
-          <span class="font-display text-3xl font-bold uppercase">{p.month}</span>
-        </p>
-        <p class="mt-1 text-[15px] font-medium" set:html={rich(p.instead.replace('{240000}', '<s class="opacity-70">{240000}</s>'), lang)} />
+    <article id="promo-card" class="hm-promo reveal">
+      <div>
+        <span class="hm-badge">{p.badge}</span>
+        <h3>{p.title[0]} {p.title[1]}</h3>
+        <p class="hm-promo-price"><b set:html={money(120000, lang)} /><span>{p.month}</span> <s set:html={rich('{240000}', lang)} /></p>
+        <p class="hm-promo-first">{p.first6}</p>
+        <ol class="hm-months" aria-label={p.monthsAria}>
+          {[1, 2, 3, 4, 5, 6].map((m) => <li class:list={[m <= 3 ? 'is-pay' : 'is-free']}><b>{m}</b><span>{m <= 3 ? p.pay : p.free}</span></li>)}
+        </ol>
       </div>
-
-      <ol class="mt-8 grid grid-cols-6 gap-1.5 sm:gap-2" aria-label={p.monthsAria}>
-        {
-          [1, 2, 3, 4, 5, 6].map((m) => (
-            <li
-              class:list={[
-                'rounded-xl py-3 text-center',
-                m <= 3 ? 'bg-ink text-bone' : 'border-2 border-dashed border-white/50',
-              ]}
-            >
-              <span class="block text-[10px] font-semibold uppercase tracking-wider opacity-70">{p.monthLabel}</span>
-              <span class="block font-display text-3xl font-extrabold leading-none">{m}</span>
-              <span class:list={['mt-1 block text-[10px] font-bold uppercase tracking-wider', m <= 3 ? 'text-volt' : '']}>
-                {m <= 3 ? p.pay : p.free}
-              </span>
-            </li>
-          ))
-        }
-      </ol>
-
-      <div class="mt-4 flex items-center justify-between gap-4 rounded-2xl bg-ink p-5 text-bone">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-mute">{p.youPay}</p>
-          <p class="font-display text-4xl font-extrabold" set:html={money(720000, lang)} />
-          <p class="text-xs text-mute" set:html={rich(p.insteadOf, lang)} />
-        </div>
-        <div class="text-right">
-          <p class="text-xs font-semibold uppercase tracking-wider text-mute">{p.youSave}</p>
-          <p class="font-display text-4xl font-extrabold text-volt" set:html={money(720000, lang)} />
-          <p class="text-xs text-mute">{p.fifty}</p>
-        </div>
+      <div class="hm-promo-cta">
+        <a href={wa.promo} target="_blank" rel="noopener" class="btn btn-light">{p.cta}</a>
+        <p class="hm-small" set:html={rich(p.contract, lang)} />
       </div>
+    </article>
 
-      <p class="mt-5 text-sm font-medium leading-relaxed" set:html={rich(p.contract, lang)} />
-      <div class="mt-6">
-        <a href={wa.promo} target="_blank" rel="noopener" class="btn bg-ink text-volt hover:-translate-y-0.5">
-          {p.cta}
-        </a>
-      </div>
-    </div>
-  </article>
-
-  <div class="reveal order-4 mt-20 max-w-3xl">
-    <p class="eyebrow mb-4">{t.faqTitle}</p>
-    <div class="divide-y divide-white/10 border-y border-white/10">
+    <div class="hm-plans">
       {
-        faqT.items.map((f) => (
-          <details name="faq" class="group py-5">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold [&::-webkit-details-marker]:hidden">
-              {f.q}
-              <span class="text-2xl text-volt transition group-open:rotate-45" aria-hidden="true">+</span>
-            </summary>
-            <p class="mt-3 max-w-3xl leading-relaxed text-mute" set:html={rich(f.a, lang)} />
-          </details>
+        t.plans.map((plan, i) => (
+          <article class:list={['hm-plan reveal', plan.highlight && 'is-hi']} style={`--d:${i * 0.08}s`}>
+            <h3>{plan.name}</h3>
+            <p class="hm-price"><b set:html={money(plan.price, lang)} /><span>{t.perMonth}</span></p>
+            <p class="hm-plan-note">{plan.commitment}</p>
+            {plan.save ? <p class="hm-save" set:html={rich(plan.save, lang)} /> : <p class="hm-save hm-save-empty" aria-hidden="true">&nbsp;</p>}
+            <a href={planLinks[i]} target="_blank" rel="noopener" class:list={['btn', plan.highlight ? 'btn-light' : 'btn-volt']}>{plan.cta}</a>
+          </article>
         ))
       }
     </div>
-  </div>
+
+    <ul class="hm-incl reveal">
+      {t.includes.map((x) => <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{x}</li>)}
+    </ul>
+    <p class="hm-small hm-center" set:html={rich(t.terms, lang)} />
   </div>
 </section>

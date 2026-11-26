@@ -1,0 +1,54 @@
+---
+// Tarjeta de Wallet armada con las imágenes REALES de cada negocio (franja de sellos y logo) y los colores reales del pase.
+// Es HTML y CSS (no una captura): pesa poco, se ve nítida en cualquier pantalla y respeta el idioma.
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+  biz: 'cupa' | 'alma' | 'elr';
+  season?: 'n' | 'x'; // n = normal, x = Navidad
+  lang?: Lang;
+  eager?: boolean;
+  name?: string;
+  class?: string;
+}
+const { biz, season = 'n', lang = 'es', eager = false, name = 'Laura Gómez', class: cls = '' } = Astro.props;
+const h = ui[lang].hero;
+
+const D = {
+  cupa: {
+    n: { bg: 'rgb(105,128,43)', fg: '#fffef9', lb: '#e6ebd2', logo: 'cupa-logo', logoW: 50, hd: h.stamps, count: '6/10', level: 'Cupa starter' },
+    x: { bg: 'rgb(105,128,45)', fg: '#fff8ec', lb: '#ffd84d', logo: 'cupa-logo-x', logoW: 50, hd: lang === 'es' ? 'DULCES SELLOS' : h.stamps, count: '6/10', level: 'Cupa starter' },
+    alt: 'CUPÁ',
+  },
+  alma: {
+    n: { bg: 'rgb(101,62,17)', fg: '#fbf6ec', lb: '#f8e8c0', logo: 'alma-logo', logoW: 80, hd: h.stamps, count: '6/10', level: h.member },
+    x: { bg: 'rgb(74,18,28)', fg: '#fbf6ec', lb: '#f0dfb4', logo: 'alma-logo-x', logoW: 86, hd: h.stamps, count: '6/10', level: h.member },
+    alt: 'Alma',
+  },
+  elr: {
+    n: { bg: 'rgb(250,248,244)', fg: '#111111', lb: '#6e736d', logo: 'elr-logo', logoW: 56, hd: h.stamps, count: '4/6', level: h.member },
+    x: { bg: 'rgb(17,18,20)', fg: '#ffffff', lb: '#ffd23f', logo: 'elr-logo-x', logoW: 56, hd: h.stamps, count: '4/6', level: h.member },
+    alt: 'El Ropero',
+  },
+} as const;
+const c = D[biz][season];
+const alt = D[biz].alt;
+const shade = biz === 'elr' && season === 'n';
+---
+
+<div class:list={['wc', cls, shade && 'wc-light']} style={`--bg:${c.bg};--fg:${c.fg};--lb:${c.lb}`}>
+  <div class="wc-top">
+    <img src={`/img/cards/${c.logo}.webp`} alt={alt} width={c.logoW * 2} height="100" style={`width:calc(${c.logoW} * 0.3125cqw)`} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    <div class="wc-hd">
+      <span class="wc-l">{c.hd}</span>
+      <b>{c.count}</b>
+    </div>
+  </div>
+  <img class="wc-strip" src={`/img/cards/strip-${biz}-${season}.webp`} alt="" width="750" height="288" loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />
+  <div class="wc-row">
+    <div><span class="wc-l">{h.client}</span><b>{name}</b></div>
+    <div class="wc-r"><span class="wc-l">{h.level}</span><b>{c.level}</b></div>
+  </div>
+  <svg class="wc-qr" viewBox="0 0 25 25" aria-hidden="true"><use href="#qr"></use></svg>
+  <span class="wc-alt">{h.scanToShow}</span>
+</div>

@@ -2,14 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import Header from './Header.astro';
 import Hero from './Hero.astro';
-import Clients from './Clients.astro';
-import CardTypes from './CardTypes.astro';
-import Benefits from './Benefits.astro';
+import Proof from './Proof.astro';
 import HowItWorks from './HowItWorks.astro';
+import Panel from './Panel.astro';
+import Seasons from './Seasons.astro';
+import CardTypes from './CardTypes.astro';
 import Pricing from './Pricing.astro';
-import Trail from './Trail.astro';
+import Faq from './Faq.astro';
+import FinalCta from './FinalCta.astro';
 import Footer from './Footer.astro';
 import type { Lang } from '../i18n/ui';
+import '../styles/home.css';
 
 interface Props {
   lang: Lang;
@@ -17,16 +20,69 @@ interface Props {
 const { lang } = Astro.props;
 ---
 
-<Layout lang={lang} alternates autoLang={lang === 'es'}>
+<Layout lang={lang} alternates autoLang={lang === 'es'} preload={['/img/cards/strip-cupa-n.webp']}>
+  <!-- QR de muestra compartido por todas las tarjetas de la página -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="qr" viewBox="0 0 25 25">
+      <rect width="25" height="25" fill="#fff" />
+      <path fill="#111" fill-rule="evenodd" d="M1 1h7v7H1zM2 2v5h5V2zM17 1h7v7h-7zM18 2v5h5V2zM1 17h7v7H1zM2 18v5h5v-5zM3 3h3v3H3zM19 3h3v3h-3zM3 19h3v3H3zM10 1h2v2h-2zM13 1h2v3h-2zM10 4h1v2h-1zM12 5h2v2h-2zM9 8h2v2H9zM12 8h3v1h-3zM15 7h1v3h-1zM1 10h2v2H1zM4 10h1v3H4zM6 9h2v2H6zM9 11h2v2H9zM12 10h2v2h-2zM16 11h2v2h-2zM19 9h3v2h-3zM22 11h2v2h-2zM1 14h3v1H1zM5 13h2v2H5zM8 14h2v2H8zM11 13h1v3h-1zM13 12h2v2h-2zM15 14h2v1h-2zM18 13h2v2h-2zM21 14h3v2h-3zM10 17h3v2h-3zM14 17h2v2h-2zM17 17h3v1h-3zM21 17h2v3h-2zM10 20h2v2h-2zM13 21h3v2h-3zM17 19h2v3h-2zM20 21h1v3h-1zM23 18h1v2h-1zM10 23h2v1h-2zM17 23h2v1h-2z" />
+    </symbol>
+  </svg>
   <Header lang={lang} />
-  <main class="relative">
-    <Trail />
+  <main id="inicio">
     <Hero lang={lang} />
-    <Clients lang={lang} />
-    <CardTypes lang={lang} />
-    <Benefits lang={lang} />
+    <Proof lang={lang} />
     <HowItWorks lang={lang} />
+    <Panel lang={lang} />
+    <Seasons lang={lang} />
+    <CardTypes lang={lang} />
     <Pricing lang={lang} />
+    <Faq lang={lang} />
+    <FinalCta lang={lang} />
   </main>
   <Footer lang={lang} />
 </Layout>
+
+<script>
+  // Números y gráficas que se "dibujan" al entrar en pantalla, y el cambio Normal/Navidad. Todo con opacity/transform; sin libs.
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ease = (x: number) => 1 - Math.pow(1 - x, 3);
+  document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+    const end = Number(el.dataset.count);
+    const dec = Number(el.dataset.dec ?? 0);
+    const fmt = (n: number) => `${el.dataset.pre ?? ''}${n.toFixed(dec).replace('.', el.dataset.sep ?? '.')}${el.dataset.suf ?? ''}`;
+    if (still) return;
+    const io = new IntersectionObserver((es) => {
+      if (!es[0]?.isIntersecting) return;
+      io.disconnect();
+      const t0 = performance.now();
+      const tick = (t: number) => {
+        const k = Math.min(1, (t - t0) / 1100);
+        el.textContent = fmt(end * ease(k));
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      el.textContent = fmt(0);
+      requestAnimationFrame(tick);
+    }, { threshold: 0.6 });
+    io.observe(el);
+  });
+
+  const sec = document.getElementById('temporadas');
+  if (sec) {
+    const btns = sec.querySelectorAll<HTMLButtonElement>('.hm-seg button');
+    let touched = false;
+    const set = (s: string) => {
+      sec.dataset.season = s;
+      btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.s === s)));
+    };
+    btns.forEach((b) => b.addEventListener('click', () => { touched = true; set(b.dataset.s ?? 'n'); }));
+    if (!still) {
+      const io = new IntersectionObserver((es) => {
+        if (!es[0]?.isIntersecting) return;
+        io.disconnect();
+        setTimeout(() => { if (!touched) set('x'); }, 1400);
+      }, { threshold: 0.55 });
+      io.observe(sec);
+    }
+  }
+</script>

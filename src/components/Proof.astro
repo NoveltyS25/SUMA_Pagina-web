@@ -1,0 +1,23 @@
+---
+import { ui, type Lang } from '../i18n/ui';
+interface Props { lang?: Lang }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].proof;
+const badges = ['cupa', 'alma', 'elropero'];
+---
+
+<section class="hm-proof" aria-label={t.label}>
+  <div class="hm-wrap hm-proof-in">
+    <p class="hm-proof-l">{t.label}</p>
+    <ul>
+      {
+        t.items.map(([name, city], i) => (
+          <li>
+            <img src={`/img/cards/badge-${badges[i]}.webp`} alt="" width="72" height="72" loading="lazy" decoding="async" />
+            <span><b>{name}</b><small>{city}</small></span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

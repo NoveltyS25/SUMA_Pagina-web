@@ -1,0 +1,35 @@
+---
+import { ui, type Lang } from '../i18n/ui';
+import WalletCard from './WalletCard.astro';
+interface Props { lang?: Lang }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang].seasons;
+const bizs = ['cupa', 'alma', 'elr'] as const;
+---
+
+<section id="temporadas" class="hm-sec hm-gray" data-season="n">
+  <div class="hm-wrap">
+    <header class="hm-head hm-head-c reveal">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 class="h2">{t.h2}</h2>
+      <p class="hm-lead">{t.sub}</p>
+      <div class="hm-seg" role="group" aria-label={t.aria}>
+        <button type="button" data-s="n" aria-pressed="true">{t.toggle[0]}</button>
+        <button type="button" data-s="x" aria-pressed="false">{t.toggle[1]}</button>
+      </div>
+    </header>
+    <div class="hm-seasons">
+      {
+        bizs.map((b, i) => (
+          <figure class="hm-sw reveal" style={`--d:${i * 0.1}s`}>
+            <div class="hm-sw-stack">
+              <WalletCard biz={b} season="n" lang={lang} class="sw-n" />
+              <WalletCard biz={b} season="x" lang={lang} class="sw-x" />
+            </div>
+            <figcaption>{t.cards[i]}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>
